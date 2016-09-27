@@ -1,13 +1,13 @@
 {
     "name": "wow-apps/symfony-slack-bot",
-    "description" : "A demo bundle",
+    "description" : "Symfony 3 bundle for easy publish messages to your Slack",
     "type" : "symfony-bundle",
     "authors" : [{
         "name" : "Alexey Samara",
         "email" : "lion.samara@gmail.com"
     }],
     "keywords" : [
-        "demo bundle"
+        "symfony slack bot"
     ],
     "license" : [
         "Apache-2.0"
