@@ -5,10 +5,21 @@
     "homepage": "https://github.com/wow-apps/symfony-slack-bot",
     "authors" : [{
         "name" : "Alexey Samara",
-        "email" : "lion.samara@gmail.com"
+        "role": "lead",
+        "email" : "lion.samara@gmail.com",
+        "homepage": "https://github.com/wow-apps"
     }],
+    "support": {
+        "issues": "https://github.com/wow-apps/symfony-slack-bot/issues",
+        "wiki": "https://github.com/wow-apps/symfony-slack-bot/wiki",
+        "source": "https://github.com/wow-apps/symfony-slack-bot"
+    },
     "keywords" : [
-        "symfony slack bot"
+        "symfony",
+        "symfony 3",
+        "slack",
+        "slack bot",
+        "slackbot"
     ],
     "license" : [
         "Apache-2.0"
