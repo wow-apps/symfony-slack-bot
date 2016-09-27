@@ -2,6 +2,7 @@
     "name": "wow-apps/symfony-slack-bot",
     "description" : "Symfony 3 bundle for easy publish messages to your Slack",
     "type" : "symfony-bundle",
+    "homepage": "https://github.com/wow-apps/symfony-slack-bot",
     "authors" : [{
         "name" : "Alexey Samara",
         "email" : "lion.samara@gmail.com"
@@ -13,7 +14,7 @@
         "Apache-2.0"
     ],
     "require" : {
-        "php": "^7.0",
+        "php": ">=7.0",
         "symfony/symfony": "^3.0"
     },
     "autoload" : {
@@ -21,12 +22,5 @@
             "WoWApps\\SlackBotBundle" : ""
         }
     },
-    "target-dir" : "WoWApps/SlackBotBundle",
-    "repositories" : [{
-    }],
-    "extra" : {
-        "branch-alias" : {
-            "dev-master" : "0.1.0-dev"
-        }
-    }
+    "target-dir" : "WoWApps/SlackBotBundle"
 }
