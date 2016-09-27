@@ -1,4 +1,4 @@
-[![SlackBot for Symfony 3](http://604235.webartua.web.hosting-test.net/slackbot-banner-2.jpg)](https://github.com/wow-apps/symfony-slack-bot)
+[![SlackBot for Symfony 3](http://604235.webartua.web.hosting-test.net/slackbot-banner-3.jpg)](https://github.com/wow-apps/symfony-slack-bot)
 
 [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg?style=flat-square)](https://raw.githubusercontent.com/wow-apps/symfony-slack-bot/master/LICENSE)
 [![PHP version](https://img.shields.io/badge/PHP-%5E7.0-blue.svg?style=flat-square)](http://php.net/manual/ru/migration70.new-features.php)
