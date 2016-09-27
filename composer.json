@@ -3,8 +3,8 @@
     "description" : "A demo bundle",
     "type" : "symfony-bundle",
     "authors" : [{
-        "name" : "demo",
-        "email" : "demo@company.com"
+        "name" : "Alexey Samara",
+        "email" : "lion.samara@gmail.com"
     }],
     "keywords" : [
         "demo bundle"
@@ -26,7 +26,7 @@
     }],
     "extra" : {
         "branch-alias" : {
-            "dev-master" : "0.1.0"
+            "dev-master" : "0.1.0-dev"
         }
     }
 }
