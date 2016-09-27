@@ -32,6 +32,5 @@
         "psr-0" : {
             "WoWApps\\SlackBotBundle" : ""
         }
-    },
-    "target-dir" : "WoWApps/SlackBotBundle"
+    }
 }
