@@ -1,0 +1,32 @@
+{
+    "name": "wow-apps/symfony-slack-bot",
+    "description" : "A demo bundle",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "demo",
+        "email" : "demo@company.com"
+    }],
+    "keywords" : [
+        "demo bundle"
+    ],
+    "license" : [
+        "Apache-2.0"
+    ],
+    "require" : {
+        "php": "^7.0",
+        "symfony/symfony": "^3.0"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "WoWApps\\SlackBotBundle" : ""
+        }
+    },
+    "target-dir" : "WoWApps/SlackBotBundle",
+    "repositories" : [{
+    }],
+    "extra" : {
+        "branch-alias" : {
+            "dev-master" : "0.1.0"
+        }
+    }
+}
