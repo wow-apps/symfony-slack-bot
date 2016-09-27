@@ -1,6 +1,4 @@
-[![SlackBot for Symfony 3](http://604235.webartua.web.hosting-test.net/slackbot-banner.jpg)](https://github.com/wow-apps/symfony-slack-bot)
-
-# SlackBot bundle for Symfony 3
+# [![GitHub license](http://604235.webartua.web.hosting-test.net/slack-bot-32.jpg)] SlackBot bundle for Symfony 3
 
 [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg?style=flat-square)](https://raw.githubusercontent.com/wow-apps/symfony-slack-bot/master/LICENSE)
 [![PHP version](https://img.shields.io/badge/PHP-%5E7.0-blue.svg?style=flat-square)](http://php.net/manual/ru/migration70.new-features.php)
@@ -14,7 +12,7 @@
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21/mini.png)](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/wow-apps/symfony-slack-bot.svg?style=social?style=flat-square)](https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D)
 
-## Add to your project:
+## Installation:
 
 ```json
 "require": {
@@ -23,3 +21,5 @@
 ```
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21/big.png)](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21)
+
+[![SlackBot for Symfony 3](http://604235.webartua.web.hosting-test.net/slackbot-banner.jpg)](https://github.com/wow-apps/symfony-slack-bot)
