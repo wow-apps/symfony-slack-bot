@@ -1,4 +1,4 @@
-[![SlackBot for Symfony 3](http://604235.webartua.web.hosting-test.net/slackbot-banner-3.jpg)](https://github.com/wow-apps/symfony-slack-bot)
+[![SlackBot for Symfony 3](http://604235.webartua.web.hosting-test.net/slackbot-banner-3.jpg)](https://github.com/wow-apps/symfony-slack-bot) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21/big.png)](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21)
 
 [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg?style=flat-square)](https://raw.githubusercontent.com/wow-apps/symfony-slack-bot/master/LICENSE)
 [![PHP version](https://img.shields.io/badge/PHP-%5E7.0-blue.svg?style=flat-square)](http://php.net/manual/ru/migration70.new-features.php)
@@ -12,12 +12,68 @@
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21/mini.png)](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/wow-apps/symfony-slack-bot.svg?style=social?style=flat-square)](https://twitter.com/intent/tweet?text=SlackBot+for+Symfony+3&url=%5Bobject%20Object%5D)
 
+
+## Requires:
+
+* PHP 7.0+
+* Symfony 3.0+
+* Guzzle Client 6.0+
+
+
 ## Installation:
 
 ```json
 "require": {
         "wow-apps/symfony-slack-bot": "^1.0.0"
-},
+}
 ```
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21/big.png)](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21)
+or
+
+```bash
+$ composer require wow-apps/symfony-slack-bot
+```
+
+Then enable the bundle on the `AppKernel` class:
+
+```php
+// ./app/AppKernel.php
+
+public function registerBundles()
+{
+    $bundles = array(
+        // ...
+        new WowApps\SlackBotBundle\WowAppsSlackBotBundle()
+    );
+
+    // ...
+
+    return $bundles
+}
+```
+
+
+## Configure:
+
+```yaml
+# SlackBot Configuration
+wow_apps_slack_bot:
+    api_url: ""
+    default_icon: "http://cdn.wow-apps.pro/slackbot/slack-bot-icon-48.png"
+    default_channel: "general"
+    quote_color:
+        default: "#607D8B"
+        info: "#2196F3"
+        warning: "#FF5722"
+        success: "#8BC34A"
+        danger: "#F44336"
+```
+
+## Send test message:
+
+You can check your configuration by send test message:
+
+`php ./bin/console slackbot:test`
+
+
+more documentation comming soon...

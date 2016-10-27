@@ -1,6 +1,6 @@
 <?php
 
-namespace WoWApps\SlackBotBundle\Controller;
+namespace WowApps\SlackBotBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

@@ -1,6 +1,6 @@
 <?php
 
-namespace WoWApps\SlackBotBundle\Tests\Controller;
+namespace WowApps\SlackBotBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

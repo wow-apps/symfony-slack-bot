@@ -1,13 +1,16 @@
 <?php
-/**
- * Created by PhpStorm
- * User: Alexey Samara
- */
 
-namespace WoWApps\SlackBotBundle\DTO;
+namespace WowApps\SlackBotBundle\DTO;
+
+use WowApps\SlackBotBundle\Traits\SlackMessageTrait;
 
 class SlackMessage
 {
+    use SlackMessageTrait;
+
+    /** @var string */
+    private $icon;
+
     /** @var string */
     private $text;
 
@@ -16,6 +19,9 @@ class SlackMessage
 
     /** @var string */
     private $quoteTitle;
+
+    /** @var string */
+    private $quoteTitleLink;
 
     /** @var string */
     private $quoteText;
@@ -32,31 +38,56 @@ class SlackMessage
 
     /**
      * SlackMessage constructor.
+     * @param string $icon
      * @param string $text
      * @param int $quoteType
      * @param string $quoteTitle
+     * @param string $quoteTitleLink
      * @param string $quoteText
      * @param bool $showQuote
      * @param string $recipient
      * @param string $sender
      */
     public function __construct(
-        string $text = '',
-        int $quoteType = 0,
-        string $quoteTitle = '',
-        string $quoteText = '',
-        bool $showQuote = false,
-        string $recipient = '',
-        string $sender = ''
+        string  $icon = '',
+        string  $text = '',
+        int     $quoteType = 0,
+        string  $quoteTitle = '',
+        string  $quoteTitleLink = '',
+        string  $quoteText = '',
+        bool    $showQuote = false,
+        string  $recipient = '',
+        string  $sender = ''
     ) {
         $this
+            ->setIcon($icon)
             ->setText($text)
             ->setQuoteType($quoteType)
             ->setQuoteTitle($quoteTitle)
+            ->setQuoteTitleLink($quoteTitleLink)
             ->setQuoteText($quoteText)
             ->setShowQuote($showQuote)
             ->setRecipient($recipient)
-            ->setSender($sender);
+            ->setSender($sender)
+        ;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIcon(): string
+    {
+        return $this->icon;
+    }
+
+    /**
+     * @param string $icon
+     * @return SlackMessage
+     */
+    public function setIcon(string $icon)
+    {
+        $this->icon = $icon;
+        return $this;
     }
 
     /**
@@ -69,11 +100,11 @@ class SlackMessage
 
     /**
      * @param string $text
-     * @return $this
+     * @return SlackMessage
      */
     public function setText(string $text)
     {
-        $this->text = $text;
+        $this->text = $this->escapeCharacters($text);
         return $this;
     }
 
@@ -87,7 +118,7 @@ class SlackMessage
 
     /**
      * @param int $quoteType
-     * @return $this
+     * @return SlackMessage
      */
     public function setQuoteType(int $quoteType)
     {
@@ -105,11 +136,29 @@ class SlackMessage
 
     /**
      * @param string $quoteTitle
-     * @return $this
+     * @return SlackMessage
      */
     public function setQuoteTitle(string $quoteTitle)
     {
-        $this->quoteTitle = $quoteTitle;
+        $this->quoteTitle = $this->escapeCharacters($quoteTitle);
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getQuoteTitleLink(): string
+    {
+        return $this->quoteTitleLink;
+    }
+
+    /**
+     * @param string $quoteTitleLink
+     * @return SlackMessage
+     */
+    public function setQuoteTitleLink(string $quoteTitleLink)
+    {
+        $this->quoteTitleLink = $this->escapeCharacters($quoteTitleLink);
         return $this;
     }
 
@@ -123,11 +172,11 @@ class SlackMessage
 
     /**
      * @param string $quoteText
-     * @return $this
+     * @return SlackMessage
      */
     public function setQuoteText(string $quoteText)
     {
-        $this->quoteText = $quoteText;
+        $this->quoteText = $this->escapeCharacters($quoteText);
         return $this;
     }
 
@@ -141,7 +190,7 @@ class SlackMessage
 
     /**
      * @param bool $showQuote
-     * @return $this
+     * @return SlackMessage
      */
     public function setShowQuote(bool $showQuote)
     {
@@ -159,11 +208,11 @@ class SlackMessage
 
     /**
      * @param string $recipient
-     * @return $this
+     * @return SlackMessage
      */
     public function setRecipient(string $recipient)
     {
-        $this->recipient = $recipient;
+        $this->recipient = $this->escapeCharacters($recipient);
         return $this;
     }
 
@@ -177,11 +226,11 @@ class SlackMessage
 
     /**
      * @param string $sender
-     * @return $this
+     * @return SlackMessage
      */
     public function setSender(string $sender)
     {
-        $this->sender = $sender;
+        $this->sender = $this->escapeCharacters($sender);
         return $this;
     }
 }

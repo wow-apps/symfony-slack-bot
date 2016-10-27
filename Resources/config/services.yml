@@ -1,4 +1,6 @@
+parameters:
+
 services:
-#    wo_w_apps_slack_bot.example:
-#        class: WoWApps\SlackBotBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    wowapps.slackbot:
+        class: WowApps\SlackBotBundle\Service\SlackBot
+        arguments: [%wowapps.slackbot.config%]
