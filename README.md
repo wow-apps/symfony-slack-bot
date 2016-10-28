@@ -1,6 +1,10 @@
-[![SlackBot for Symfony 3](http://604235.webartua.web.hosting-test.net/slackbot-banner-3.jpg)](https://github.com/wow-apps/symfony-slack-bot) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21/big.png)](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21)
+|  |
+|:---:|
+| [![SlackBot for Symfony 3](http://604235.webartua.web.hosting-test.net/slackbot-banner-3.jpg)](https://github.com/wow-apps/symfony-slack-bot) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21/big.png)](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21) |
+|  |
+|  [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg?style=flat-square)](https://raw.githubusercontent.com/wow-apps/symfony-slack-bot/master/LICENSE) |
+|  |
 
-[![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg?style=flat-square)](https://raw.githubusercontent.com/wow-apps/symfony-slack-bot/master/LICENSE)
 [![PHP version](https://img.shields.io/badge/PHP-%5E7.0-blue.svg?style=flat-square)](http://php.net/manual/ru/migration70.new-features.php)
 [![Symfony version](https://img.shields.io/badge/Symfony-%5E3.0-green.svg?style=flat-square)](http://symfony.com/)
 [![Packagist Pre Release](https://img.shields.io/packagist/v/wow-apps/symfony-slack-bot.svg?maxAge=2592000?style=flat-square)](https://packagist.org/packages/wow-apps/symfony-slack-bot)
@@ -13,14 +17,15 @@
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/wow-apps/symfony-slack-bot.svg?style=social?style=flat-square)](https://twitter.com/intent/tweet?text=SlackBot+for+Symfony+3&url=%5Bobject%20Object%5D)
 
 
-## Requires:
+## Installation:
+
+### Requires:
 
 * PHP 7.0+
 * Symfony 3.0+
 * Guzzle Client 6.0+
 
-
-## Installation:
+### Step 1: Download the Bundle
 
 ```json
 "require": {
@@ -31,10 +36,10 @@
 or
 
 ```bash
-$ composer require wow-apps/symfony-slack-bot
+$ composer require wow-apps/symfony-slack-bot 
 ```
 
-Then enable the bundle on the `AppKernel` class:
+### Step 2: Enable the Bundle
 
 ```php
 // ./app/AppKernel.php
@@ -53,7 +58,7 @@ public function registerBundles()
 ```
 
 
-## Configure:
+### Step 3: Add configuration
 
 ```yaml
 # SlackBot Configuration
@@ -69,11 +74,16 @@ wow_apps_slack_bot:
         danger: "#F44336"
 ```
 
-## Send test message:
+## Test configuration
 
 You can check your configuration by send test message:
 
 `php ./bin/console slackbot:test`
 
 
-more documentation comming soon...
+# Documentation
+
+* [Home](https://github.com/wow-apps/symfony-slack-bot/wiki)
+    * [Installation](https://github.com/wow-apps/symfony-slack-bot/wiki/1.-Installation)
+    * [Using SlackBot](https://github.com/wow-apps/symfony-slack-bot/wiki/2.-Using-SlackBot)
+    * [Additional helpers](https://github.com/wow-apps/symfony-slack-bot/wiki/3.-Additional-helpers)
