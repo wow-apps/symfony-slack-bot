@@ -1,6 +1,6 @@
 [![SlackBot for Symfony 3](http://604235.webartua.web.hosting-test.net/slackbot-banner-3.jpg)](https://github.com/wow-apps/symfony-slack-bot)
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21/big.png)](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21/big.png?version=platinum)](https://insight.sensiolabs.com/projects/b59b8715-1ba6-4572-8b46-9866d6318d21)
 
 [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg?style=flat-square)](https://raw.githubusercontent.com/wow-apps/symfony-slack-bot/master/LICENSE)
 [![PHP version](https://img.shields.io/badge/PHP-%5E7.0-blue.svg?style=flat-square)](http://php.net/manual/ru/migration70.new-features.php)
