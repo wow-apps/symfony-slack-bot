@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>SlackBot for Symfony 3 by wow-apps</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">SlackBot for Symfony 3</h1>
+      <h2 class="project-tagline">Simple Symfony 3 Bundle for sending messages to Slack via incoming webhooks</h2>
+      <a href="https://github.com/wow-apps/symfony-slack-bot" class="btn">View on GitHub</a>
+      <a href="https://github.com/wow-apps/symfony-slack-bot/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/wow-apps/symfony-slack-bot/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p><img src="http://cdn.wow-apps.pro/slackbot/slackbot-banner.jpg" alt="SlackBot banner"></p>
+
+<p><a href="https://insight.sensiolabs.com/projects/9e427ba8-ceee-47a4-aeef-a788b9875064"><img src="https://insight.sensiolabs.com/projects/9e427ba8-ceee-47a4-aeef-a788b9875064/big.png" alt="SensioLabsInsight"></a></p>
+
+<p><a href="https://packagist.org/packages/wow-apps/symfony-slack-bot"><img src="https://img.shields.io/packagist/v/wow-apps/symfony-slack-bot.svg?maxAge=2592000?style=flat-square" alt="Packagist Pre Release"></a>
+<a href=""><img src="https://img.shields.io/appveyor/ci/gruntjs/grunt.svg?maxAge=2592000?style=flat-square" alt="AppVeyor"></a>
+<a href="http://php.net/manual/ru/migration70.new-features.php"><img src="https://img.shields.io/badge/PHP-%5E7.0-blue.svg?style=flat-square" alt="PHP version"></a>
+<a href="http://symfony.com/"><img src="https://img.shields.io/badge/Symfony-%5E3.0-green.svg?style=flat-square" alt="Symfony version"></a>
+<a href="https://raw.githubusercontent.com/wow-apps/symfony-slack-bot/master/LICENSE"><img src="https://img.shields.io/badge/license-Apache%202-blue.svg?style=flat-square" alt="GitHub license"></a>
+<a href="http://www.php-fig.org/psr/psr-2/"><img src="https://img.shields.io/badge/Coding%20Style-PSR--2-brightgreen.svg" alt="Coding Style"></a>
+<a href="https://codeclimate.com/github/wow-apps/symfony-slack-bot"><img src="https://codeclimate.com/github/wow-apps/symfony-slack-bot/badges/gpa.svg" alt="Code Climate"></a>
+<a href="https://www.codacy.com/app/lion-samara/symfony-slack-bot?utm_source=github.com&amp;amp;utm_medium=referral&amp;amp;utm_content=wow-apps/symfony-slack-bot&amp;amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/ce3fffd811f2463a94ed4065a341885a" alt="Codacy Badge"></a>
+<a href="https://insight.sensiolabs.com/projects/9e427ba8-ceee-47a4-aeef-a788b9875064"><img src="https://insight.sensiolabs.com/projects/9e427ba8-ceee-47a4-aeef-a788b9875064/mini.png" alt="SensioLabsInsight"></a>
+<a href="https://twitter.com/intent/tweet?text=SlackBot+for+Symfony+3&amp;url=%5Bobject%20Object%5D"><img src="https://img.shields.io/twitter/url/https/github.com/wow-apps/symfony-slack-bot.svg?style=social?style=flat-square" alt="Twitter"></a></p>
+
+<h1>
+<a id="slackbot-for-symfony-3" class="anchor" href="#slackbot-for-symfony-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SlackBot for Symfony 3</h1>
+
+<p>Simple Symfony 3 Bundle for sending messages to Slack via <a href="https://api.slack.com/incoming-webhooks">incoming webhooks</a>.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation:</h2>
+
+<h3>
+<a id="requires" class="anchor" href="#requires" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requires:</h3>
+
+<ul>
+<li>PHP 7.0+</li>
+<li>Symfony 3.0+</li>
+<li>Guzzle Client 6.0+</li>
+</ul>
+
+<h3>
+<a id="step-1-download-the-bundle" class="anchor" href="#step-1-download-the-bundle" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 1: Download the Bundle</h3>
+
+<div class="highlight highlight-source-json"><pre><span class="pl-s"><span class="pl-pds">"</span>require<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>wow-apps/symfony-slack-bot<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>^1.0.0<span class="pl-pds">"</span></span>
+}</pre></div>
+
+<p>or</p>
+
+<div class="highlight highlight-source-shell"><pre>$ composer require wow-apps/symfony-slack-bot </pre></div>
+
+<h3>
+<a id="step-2-enable-the-bundle" class="anchor" href="#step-2-enable-the-bundle" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 2: Enable the Bundle</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c">// ./app/AppKernel.php</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">registerBundles</span>()</span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">    <span class="pl-smi">$bundles</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">        <span class="pl-c">// ...</span></span>
+<span class="pl-s1">        <span class="pl-k">new</span> <span class="pl-c1">WowApps\SlackBotBundle\</span><span class="pl-c1">WowAppsSlackBotBundle</span>()</span>
+<span class="pl-s1">    );</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">// ...</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">return</span> <span class="pl-smi">$bundles</span></span>
+<span class="pl-s1">}</span></pre></div>
+
+<h3>
+<a id="step-3-add-configuration" class="anchor" href="#step-3-add-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3: Add configuration</h3>
+
+<div class="highlight highlight-source-yaml"><pre><span class="pl-c"># SlackBot Configuration</span>
+<span class="pl-ent">wow_apps_slack_bot:</span>
+    <span class="pl-ent">api_url:</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
+    <span class="pl-ent">default_icon:</span> <span class="pl-s"><span class="pl-pds">"</span>http://cdn.wow-apps.pro/slackbot/slack-bot-icon-48.png<span class="pl-pds">"</span></span>
+    <span class="pl-ent">default_channel:</span> <span class="pl-s"><span class="pl-pds">"</span>general<span class="pl-pds">"</span></span>
+    <span class="pl-ent">quote_color:</span>
+        <span class="pl-ent">default:</span> <span class="pl-s"><span class="pl-pds">"</span>#607D8B<span class="pl-pds">"</span></span>
+        <span class="pl-ent">info:</span> <span class="pl-s"><span class="pl-pds">"</span>#2196F3<span class="pl-pds">"</span></span>
+        <span class="pl-ent">warning:</span> <span class="pl-s"><span class="pl-pds">"</span>#FF5722<span class="pl-pds">"</span></span>
+        <span class="pl-ent">success:</span> <span class="pl-s"><span class="pl-pds">"</span>#8BC34A<span class="pl-pds">"</span></span>
+        <span class="pl-ent">danger:</span> <span class="pl-s"><span class="pl-pds">"</span>#F44336<span class="pl-pds">"</span></span></pre></div>
+
+<h2>
+<a id="send-test-message" class="anchor" href="#send-test-message" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Send test message:</h2>
+
+<p>To test your configuration, send test message by next command:</p>
+
+<div class="highlight highlight-source-shell"><pre>php ./bin/console slackbot:<span class="pl-c1">test</span></pre></div>
+
+<p><img src="http://cdn.wow-apps.pro/slackbot/slackbot_preview.jpg" alt="Test command result preview"></p>
+
+<h1>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentation</h1>
+
+<ul>
+<li>
+<a href="https://github.com/wow-apps/symfony-slack-bot/wiki">Home</a>
+
+<ul>
+<li><a href="https://github.com/wow-apps/symfony-slack-bot/wiki/1.-Installation">Installation</a></li>
+<li><a href="https://github.com/wow-apps/symfony-slack-bot/wiki/2.-Using-SlackBot">Using SlackBot</a></li>
+<li><a href="https://github.com/wow-apps/symfony-slack-bot/wiki/3.-Additional-helpers">Additional helpers</a></li>
+</ul>
+</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/wow-apps/symfony-slack-bot">SlackBot for Symfony 3</a> is maintained by <a href="https://github.com/wow-apps">wow-apps</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
