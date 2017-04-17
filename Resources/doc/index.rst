@@ -27,7 +27,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new WowApps\SlackBotBundle\WowAppsSlackBotBundle()
+        new Wowapps\SlackBundle\WowappsSlackBundle(),
     );
 
     // ...
@@ -41,7 +41,7 @@ public function registerBundles()
 
 ```yaml
 # SlackBot Configuration
-wow_apps_slack_bot:
+wowapps_slack:
     api_url: ""
     default_icon: "http://cdn.wow-apps.pro/slackbot/slack-bot-icon-48.png"
     default_channel: "general"
