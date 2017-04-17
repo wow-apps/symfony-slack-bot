@@ -30,7 +30,7 @@ Simple Symfony 3 Bundle for sending messages to Slack via [incoming webhooks](ht
 
 ```json
 "require": {
-        "wow-apps/symfony-slack-bot": "^1.0.0"
+        "wow-apps/symfony-slack-bot": "^3"
 }
 ```
 
@@ -49,7 +49,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new WowApps\SlackBotBundle\WowAppsSlackBotBundle()
+        new WowApps\SlackBundle\WowAppsSlackBundle()
     );
 
     // ...
