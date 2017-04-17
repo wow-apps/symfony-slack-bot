@@ -1,6 +1,6 @@
 {
     "name": "wow-apps/symfony-slack-bot",
-    "description" : "Simple Symfony 3 Bundle for sending messages to Slack via incoming webhooks.",
+    "description" : "Simple Symfony 3 Bundle for sending customizeable messages to Slack via incoming webhooks.",
     "type" : "symfony-bundle",
     "homepage": "https://wow-apps.github.io/symfony-slack-bot/",
     "authors" : [{
