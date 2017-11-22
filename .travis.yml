@@ -1,0 +1,6 @@
+language: php
+install: true
+sudo: false
+branches:
+  only:
+      - master
