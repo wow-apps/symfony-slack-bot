@@ -1,21 +1,9 @@
+os: linux
 language: php
-
 php:
   - 7.0
-  - 7.1
-  - 7.2
-
 install: true
-
 sudo: false
-
 branches:
   only:
       - master
-
-before_script:
-  - curl -s http://getcomposer.org/installer | php --
-  - php composer.phar install --dev
-  - php composer.phar require symfony/framework-bundle:dev-master
-
-script: phpunit --coverage-text
