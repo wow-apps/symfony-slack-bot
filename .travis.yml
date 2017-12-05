@@ -1,9 +1,36 @@
 os: linux
+
 language: php
+
 php:
   - 7.0
+
 install: true
+
 sudo: false
+
 branches:
   only:
       - master
+
+cache:
+    directories:
+        - $HOME/.composer/cache
+
+env:
+  matrix:
+    - COMPOSER_FLAGS="--prefer-stable --prefer-lowest"
+
+before_script:
+  - travis_retry composer self-update
+  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
+
+script:
+  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+
+after_script:
+    - |
+      if [[ "$TRAVIS_PHP_VERSION" != '7.0' ]]; then
+        wget https://scrutinizer-ci.com/ocular.phar
+        php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+      fi

@@ -1,4 +1,9 @@
 services:
     wowapps.slackbot:
-        class: Wowapps\SlackBundle\Service\SlackBot
-        arguments: [%wowapps.slackbot.config%]
+        class: WowApps\SlackBundle\Service\SlackBot
+        arguments:
+            - "%wowapps.slackbot.config%"
+            - "@wowapps.slackbot.validator"
+
+    wowapps.slackbot.validator:
+        class: WowApps\SlackBundle\Service\SlackMessageValidator

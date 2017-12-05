@@ -1,8 +1,8 @@
 ## Create message
 
 ```php
-use Wowapps\SlackBundle\DTO\SlackMessage;
-use Wowapps\SlackBundle\Service\SlackBot;
+use WowApps\SlackBundle\DTO\SlackMessage;
+use WowApps\SlackBundle\Service\SlackBot;
 ```
 
 ### Fill DTO:

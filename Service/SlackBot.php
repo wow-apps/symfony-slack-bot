@@ -1,10 +1,25 @@
 <?php
+/**
+ * This file is part of the WoW-Apps/Symfony-Slack-Bot bundle for Symfony 3
+ * https://github.com/wow-apps/symfony-slack-bot
+ *
+ * (c) 2016 WoW-Apps
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
-namespace Wowapps\SlackBundle\Service;
+namespace WowApps\SlackBundle\Service;
 
 use GuzzleHttp\Client as GuzzleClient;
-use Wowapps\SlackBundle\DTO\SlackMessage;
+use WowApps\SlackBundle\DTO\SlackMessage;
 
+/**
+ * Class SlackBot
+ *
+ * @author Alexey Samara <lion.samara@gmail.com>
+ * @package WowApps\SlackBundle
+ */
 class SlackBot
 {
     const QUOTE_DEFAULT   = 0;
@@ -19,10 +34,20 @@ class SlackBot
     /** @var GuzzleClient */
     private $guzzleClient;
 
-    public function __construct(array $config)
+    /** @var SlackMessageValidator */
+    private $validator;
+
+    /**
+     * SlackBot constructor.
+     *
+     * @param array $config
+     * @param SlackMessageValidator $validator
+     */
+    public function __construct(array $config, SlackMessageValidator $validator)
     {
         $this->setConfig($config);
         $this->guzzleClient = new GuzzleClient();
+        $this->validator = $validator;
     }
 
     /**
@@ -81,31 +106,12 @@ class SlackBot
     /**
      * @param SlackMessage $slackMessage
      * @return string
-     * @throws \InvalidArgumentException
      */
     private function buildPostBody(SlackMessage $slackMessage): string
     {
-        if (!$slackMessage->getText()) {
-            throw new \InvalidArgumentException('Message can\'t be empty');
-        }
+        $this->validator->validateMessage($slackMessage);
 
-        if (!$slackMessage->getIcon()) {
-            $return['icon_url'] = $this->config['default_icon'];
-        } else {
-            $return['icon_url'] = $slackMessage->getIcon();
-        }
-
-        if (!$slackMessage->getRecipient()) {
-            $return['channel'] = $this->config['default_channel'];
-        } else {
-            $return['channel'] = $slackMessage->getRecipient();
-        }
-
-        if (!$slackMessage->getSender()) {
-            $return['username'] = 'SlackBot';
-        } else {
-            $return['username'] = $slackMessage->getSender();
-        }
+        $slackMessage = $this->validator->setDefaultsForEmptyFields($slackMessage, $this->getConfig());
 
         $return['text'] = $slackMessage->getText();
         $return['mrkdwn'] = true;

@@ -1,9 +1,24 @@
 <?php
+/**
+ * This file is part of the WoW-Apps/Symfony-Slack-Bot bundle for Symfony 3
+ * https://github.com/wow-apps/symfony-slack-bot
+ *
+ * (c) 2016 WoW-Apps
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
-namespace Wowapps\SlackBundle\DTO;
+namespace WowApps\SlackBundle\DTO;
 
-use Wowapps\SlackBundle\Traits\SlackMessageTrait;
+use WowApps\SlackBundle\Traits\SlackMessageTrait;
 
+/**
+ * Class SlackMessage
+ *
+ * @author Alexey Samara <lion.samara@gmail.com>
+ * @package WowApps\SlackBundle
+ */
 class SlackMessage
 {
     use SlackMessageTrait;
@@ -34,7 +49,6 @@ class SlackMessage
 
     /** @var string */
     private $sender;
-
 
     /**
      * SlackMessage constructor.
