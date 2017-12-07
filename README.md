@@ -3,6 +3,7 @@
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/9e427ba8-ceee-47a4-aeef-a788b9875064/big.png)](https://insight.sensiolabs.com/projects/9e427ba8-ceee-47a4-aeef-a788b9875064)
 
 [![Packagist Pre Release](https://img.shields.io/packagist/v/wow-apps/symfony-slack-bot.svg?maxAge=2592000?style=flat-square)](https://packagist.org/packages/wow-apps/symfony-slack-bot)
+[![Packagist](https://img.shields.io/packagist/dt/wow-apps/symfony-slack-bot.svg)](https://packagist.org/packages/wow-apps/symfony-slack-bot)
 [![Build Status](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/badges/build.png?b=master)](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/build-status/master)
 [![PHP version](https://img.shields.io/badge/PHP-%5E7.0-blue.svg?style=flat-square)](http://php.net/manual/ru/migration70.new-features.php)
 [![Symfony version](https://img.shields.io/badge/Symfony-%5E3.0-green.svg?style=flat-square)](http://symfony.com/)
@@ -95,9 +96,12 @@ php ./bin/console wowapps:slackbot:test
     
 # News and updates:
 
-Follow news and updates in my Telegram channel [@wow_apps_pro](https://t.me/wow_apps_pro)
+Follow news and updates in my Telegram channel [@wow_apps_pro](https://t.me/wow_apps_pro) or Twitter [@alexey_samara_](https://twitter.com/alexey_samara_)
 
 # Changelog:
+
+* 3.1.1 (**hot fix for 3.1.0**)
+    * Changed namespaces from `Wowapps` to `WowApps` for a single standard of all my Bundles
 
 * 3.1.0
     * Added compatibility for Symfony 3.1 up to 4.0 ([issue #1](https://github.com/wow-apps/symfony-slack-bot/issues/1))
@@ -105,7 +109,6 @@ Follow news and updates in my Telegram channel [@wow_apps_pro](https://t.me/wow_
     * Added custom exceptions
     * Added Travis CI tests
     * Added missing phpDocs
-    * Changed namespaces from `Wowapps` to `WowApps` for a single standard of all my Bundles
     * Changed config parameter from `wowapps_slack` to `wow_apps_slack` for a single standard of all my Bundles
     * Changed test command from `slackbot:test` to `wowapps:slackbot:test` for a single standard of all my Bundles
     * Removed unused Controller
