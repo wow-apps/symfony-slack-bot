@@ -100,6 +100,9 @@ Follow news and updates in my Telegram channel [@wow_apps_pro](https://t.me/wow_
 
 # Changelog:
 
+* 3.1.3
+    * Changed licence from Apache 2 to MIT for Symfony Flex
+
 * 3.1.1 (**hot fix for 3.1.0**)
     * Changed namespaces from `Wowapps` to `WowApps` for a single standard of all my Bundles
 
