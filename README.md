@@ -1,4 +1,4 @@
-![SlackBot banner](http://cdn.wow-apps.pro/slackbot/slackbot-banner.jpg)
+![SlackBot banner](http://cdn.wow-apps.pro/slackbot/symfony-slack-bot-banner-v2.png)
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/9e427ba8-ceee-47a4-aeef-a788b9875064/big.png)](https://insight.sensiolabs.com/projects/9e427ba8-ceee-47a4-aeef-a788b9875064)
 
@@ -15,7 +15,7 @@
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/9e427ba8-ceee-47a4-aeef-a788b9875064/mini.png)](https://insight.sensiolabs.com/projects/9e427ba8-ceee-47a4-aeef-a788b9875064)
 
 
-# SlackBot for Symfony 3
+# Symfony Slack Bot
 
 Simple Symfony 3 Bundle for sending messages to Slack via [incoming webhooks](https://api.slack.com/incoming-webhooks).
 
