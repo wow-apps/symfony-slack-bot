@@ -100,6 +100,9 @@ Follow news and updates in my Telegram channel [@wow_apps_pro](https://t.me/wow_
 
 # Changelog:
 
+* 3.2.2
+    * Changed support for auto configuring bundle in Symfony Flex
+
 * 3.2.0
     * Removed symfony/symfony dependency for Symfony Flex
 
