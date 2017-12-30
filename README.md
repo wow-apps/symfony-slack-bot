@@ -5,10 +5,6 @@
 [![Packagist Pre Release](https://img.shields.io/packagist/v/wow-apps/symfony-slack-bot.svg?maxAge=2592000?style=flat-square)](https://packagist.org/packages/wow-apps/symfony-slack-bot)
 [![Packagist](https://img.shields.io/packagist/dt/wow-apps/symfony-slack-bot.svg)](https://packagist.org/packages/wow-apps/symfony-slack-bot)
 [![Build Status](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/badges/build.png?b=master)](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/build-status/master)
-[![PHP version](https://img.shields.io/badge/PHP-%5E7.0-blue.svg?style=flat-square)](http://php.net/manual/ru/migration70.new-features.php)
-[![Symfony version](https://img.shields.io/badge/Symfony-%5E3.0-green.svg?style=flat-square)](http://symfony.com/)
-[![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg?style=flat-square)](https://raw.githubusercontent.com/wow-apps/symfony-slack-bot/master/LICENSE)
-[![Coding Style](https://img.shields.io/badge/Coding%20Style-PSR--2-brightgreen.svg)](http://www.php-fig.org/psr/psr-2/)
 [![Code Climate](https://codeclimate.com/github/wow-apps/symfony-slack-bot/badges/gpa.svg)](https://codeclimate.com/github/wow-apps/symfony-slack-bot)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ce3fffd811f2463a94ed4065a341885a)](https://www.codacy.com/app/lion-samara/symfony-slack-bot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=wow-apps/symfony-slack-bot&amp;utm_campaign=Badge_Grade)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/?branch=master)
@@ -17,21 +13,21 @@
 
 # Symfony Slack Bot
 
-Simple Symfony 3 Bundle for sending messages to Slack via [incoming webhooks](https://api.slack.com/incoming-webhooks).
+Simple Symfony 3 and 4 Bundle for sending customizeable messages to Slack via [incoming webhooks](https://api.slack.com/incoming-webhooks).
 
-## Installation:
-
-### Requires:
+## Requires:
 
 * PHP 7.0+
 * Symfony 3.0+
 * Guzzle Client 6.0+
 
+## Installation:
+
 ### Step 1: Download the Bundle
 
 ```json
 "require": {
-        "wow-apps/symfony-slack-bot": "^3"
+        "wow-apps/symfony-slack-bot": "^3.2"
 }
 ```
 
@@ -41,7 +37,7 @@ or
 $ composer require wow-apps/symfony-slack-bot 
 ```
 
-### Step 2: Enable the Bundle
+### Step 2: Enable the Bundle (skip for Symfony 4)
 
 ```php
 // ./app/AppKernel.php
@@ -60,13 +56,13 @@ public function registerBundles()
 ```
 
 
-### Step 3: Add configuration
+### Step 3: Add configuration (skip for Symfony 4)
 
 ```yaml
 # SlackBot Configuration
 wow_apps_slack:
     api_url: ""
-    default_icon: "http://cdn.wow-apps.pro/slackbot/slack-bot-icon-48.png"
+    default_icon: "//cdn.wow-apps.pro/slackbot/slack-bot-icon-48.png"
     default_channel: "general"
     quote_color:
         default: "#607D8B"
@@ -81,7 +77,7 @@ wow_apps_slack:
 To test your configuration, send test message by next command:
 
 ```bash
-php ./bin/console wowapps:slackbot:test
+./bin/console wowapps:slackbot:test
 ```
 
 ![Test command result preview](http://cdn.wow-apps.pro/slackbot/slackbot_preview.jpg)
@@ -99,6 +95,9 @@ php ./bin/console wowapps:slackbot:test
 Follow news and updates in my Telegram channel [@wow_apps_pro](https://t.me/wow_apps_pro) or Twitter [@alexey_samara_](https://twitter.com/alexey_samara_)
 
 # Changelog:
+
+* 3.2.3
+    * Changed README file for Symfony 4 support
 
 * 3.2.2
     * Changed support for auto configuring bundle in Symfony Flex
