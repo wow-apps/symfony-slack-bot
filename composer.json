@@ -30,6 +30,9 @@
         "symfony/yaml": "^3.3|^4.0",
         "guzzlehttp/guzzle": "^6.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2"
+    },
     "autoload" : {
         "psr-4" : {
             "WowApps\\SlackBundle\\" : ""
