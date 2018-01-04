@@ -18,7 +18,6 @@ before_install:
 
 install:
     - composer create-project "symfony/skeleton:${SKELETON_VERSION}" flex
-    - cd flex
     - composer config extra.symfony.allow-contrib true
 
-script: vendor/bin/phpunit --verbose
+script: ./vendor/bin/phpunit --verbose
