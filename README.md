@@ -95,7 +95,24 @@ To test your configuration, send test message by next command:
 
 Follow news and updates in my Telegram channel [@wow_apps_pro](https://t.me/wow_apps_pro) or Twitter [@alexey_samara_](https://twitter.com/alexey_samara_)
 
+# Say thanks:
+
+I don't ask for donates, I do what I do for free, for all development community. But I will be grateful if you inform me on the email in which project you are using this Bundle, as well as I will be glad to criticize and suggestions. 
+
+![e-mail](https://img.shields.io/badge/e--mail%3A-lion.samara%40gmail.com-lightgrey.svg?style=flat-square)
+
+# License
+
+[MIT](https://github.com/wow-apps/symfony-slack-bot/blob/master/LICENSE) © 2016 - 2018 [Alexey Samara](https://wow-apps.pro) & [contributors](https://github.com/wow-apps/symfony-slack-bot/graphs/contributors)
+
+# Contribute
+
+Do you want to make a change? Pull requests are welcome.
+
 # Changelog:
+
+* 3.2.5
+    * Fixed problem with missed services.yaml file ([Issue #3](https://github.com/wow-apps/symfony-slack-bot/issues/3))
 
 * 3.2.4
     * Changed Travis-CI configuration
@@ -125,11 +142,3 @@ Follow news and updates in my Telegram channel [@wow_apps_pro](https://t.me/wow_
     * Changed test command from `slackbot:test` to `wowapps:slackbot:test` for a single standard of all my Bundles
     * Removed unused Controller
     * Removed empty tests
-
-# License
-
-[MIT](https://github.com/wow-apps/symfony-slack-bot/blob/master/LICENSE) © 2016 - 2018 [Alexey Samara](https://wow-apps.pro) & [contributors](https://github.com/wow-apps/symfony-slack-bot/graphs/contributors)
-
-# Contribute
-
-Do you want to make a change? Pull requests are welcome.
