@@ -56,16 +56,3 @@ tools:
     php_pdepend: true
     php_sim: true
     php_changetracking: true
-
-build:
-    environment:
-        php: 7.1.12
-    dependencies:
-        before:
-            - composer require phpunit/phpunit:^7.1 --dev
-    tests:
-        override:
-        -
-            command: vendor/bin/phpunit vendor/wow-apps/symfony-slack-bot/Tests
-            coverage:
-                format: php-clover
