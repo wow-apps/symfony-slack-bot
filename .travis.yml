@@ -2,12 +2,6 @@ dist: trusty
 language: php
 sudo: false
 
-branches:
-    only:
-        - master
-    except:
-        - /^pr\..*/
-
 cache:
     directories:
         - $HOME/.composer/cache/files
@@ -35,6 +29,7 @@ before_install:
 
 install:
     - composer create-project "symfony/skeleton:${SKELETON_VERSION}" flex
+    - cd flex
     - composer config extra.symfony.allow-contrib true
 
-script: php ./vendor/bin/phpunit --exclude-group ""
+script: phpunit
