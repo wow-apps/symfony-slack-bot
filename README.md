@@ -8,6 +8,7 @@
 [![Code Climate](https://img.shields.io/codeclimate/maintainability/wow-apps/symfony-slack-bot.svg?style=flat-square)](https://codeclimate.com/github/wow-apps/symfony-slack-bot)
 [![Codacy grade](https://img.shields.io/codacy/grade/ce3fffd811f2463a94ed4065a341885a.svg?style=flat-square)](https://www.codacy.com/app/lion-samara/symfony-slack-bot)
 [![Scrutinizer](https://img.shields.io/scrutinizer/g/wow-apps/symfony-slack-bot.svg?style=flat-square)](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/?branch=master)
 [![Scrutinizer Build](https://img.shields.io/scrutinizer/build/g/wow-apps/symfony-slack-bot.svg?style=flat-square)](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/?branch=master)
 
 
@@ -80,7 +81,7 @@ To test your configuration, send test message by next command:
 ./bin/console wowapps:slackbot:test
 ```
 
-![Test command result preview](http://cdn.wow-apps.pro/slackbot/slackbot_preview.jpg)
+![Test command result preview](http://cdn.wow-apps.pro/slackbot/slackbot_preview-v2.jpg)
 
 
 # Documentation
@@ -111,6 +112,8 @@ Do you want to make a change? Pull requests are welcome.
 # Changelog of 3rd version:
 
 ## Added
+* [3.2.7] Template for new pull request
+* [3.2.7] PHPUnit configuration
 * [3.2.6] phpunit test for Traits
 * [3.2.6] Templates for creating an issue
 * [3.1.0] Compatibility for Symfony 3.1 up to 4.0 ([issue #1](https://github.com/wow-apps/symfony-slack-bot/issues/1))
@@ -120,6 +123,7 @@ Do you want to make a change? Pull requests are welcome.
 * [3.1.0] Missing phpDocs
     
 ## Changed
+* [3.2.7] TravisCI configuration
 * [3.2.6] Fixed wrong using of custom exception
 * [3.2.6] TravisCI configuration
 * [3.2.5] Fixed problem with missed services.yaml file ([Issue #3](https://github.com/wow-apps/symfony-slack-bot/issues/3))

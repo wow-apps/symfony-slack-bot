@@ -38,6 +38,9 @@
     "autoload": {
         "psr-4": {
             "WowApps\\SlackBundle\\": ""
-        }
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
     }
 }

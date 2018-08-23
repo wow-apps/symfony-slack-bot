@@ -13,7 +13,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="Symfony FrameworkBundle Test Suite">
+        <testsuite name="Symfony Slack Bot Test Suite">
             <directory>./Tests/</directory>
         </testsuite>
     </testsuites>
