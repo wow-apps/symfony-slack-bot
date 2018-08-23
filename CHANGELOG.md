@@ -4,33 +4,42 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.2.6] - 2018-08-23
+### Added
+- phpunit test for Traits
+- templates for creating an issue
+
+### Changed
+- TravisCI configuration
+- Fixed wrong using of custom exception
+
 ## [3.2.5] - 2018-08-22
 ### Changed
-Fixed problem with missed services.yaml file ([Issue #3](https://github.com/wow-apps/symfony-slack-bot/issues/3))
+- Fixed problem with missed services.yaml file ([Issue #3](https://github.com/wow-apps/symfony-slack-bot/issues/3))
 
 ## [3.2.4] - 2018-01-03
 ### Changed
-Travis-CI configuration
+- Travis-CI configuration
 
 ## [3.2.3] - 2017-12-30
 ### Changed
-README file for Symfony 4 support
+- README file for Symfony 4 support
 
 ## [3.2.2] - 2017-12-29
 ### Changed
-Full support for auto configuring bundle in Symfony Flex
+- Full support for auto configuring bundle in Symfony Flex
 
 ## [3.2.0] - 2017-12-11
 ### Removed
-symfony/symfony dependency for Symfony Flex
+- symfony/symfony dependency for Symfony Flex
 
 ## [3.1.3] - 2017-12-11
 ### Changed
-Licence from Apache 2 to MIT for Symfony Flex
+- Licence from Apache 2 to MIT for Symfony Flex
 
 ## [3.1.1] - 2017-12-06
 ### Changed
-Namespaces from `Wowapps` to `WowApps` for a single standard of all my Bundles
+- Namespaces from `Wowapps` to `WowApps` for a single standard of all my Bundles
 
 ## [3.1.0] - 2017-12-05
 ### Added

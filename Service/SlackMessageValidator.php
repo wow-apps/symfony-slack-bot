@@ -12,7 +12,7 @@
 namespace WowApps\SlackBundle\Service;
 
 use WowApps\SlackBundle\DTO\SlackMessage;
-use WowApps\SlackBundle\Exception\PackagistException;
+use WowApps\SlackBundle\Exception\SlackbotException;
 
 /**
  * Class SlackMessageValidator
@@ -31,7 +31,7 @@ class SlackMessageValidator
     public function validateMessage(SlackMessage $slackMessage)
     {
         if (!$slackMessage->getText()) {
-            throw new PackagistException(PackagistException::E_EMPTY_MESSAGE);
+            throw new SlackbotException(SlackbotException::E_EMPTY_MESSAGE);
         }
     }
 

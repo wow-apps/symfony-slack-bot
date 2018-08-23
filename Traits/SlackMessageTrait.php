@@ -34,7 +34,7 @@ trait SlackMessageTrait
      */
     public function formatBold(string $string): string
     {
-        return '*' . $string . '*';
+        return sprintf("*%s*", $string);
     }
 
     /**
@@ -43,7 +43,7 @@ trait SlackMessageTrait
      */
     public function formatItalic(string $string): string
     {
-        return '_' . $string . '_';
+        return sprintf("_%s_", $string);
     }
 
     /**
@@ -52,7 +52,7 @@ trait SlackMessageTrait
      */
     public function formatStrikeThought(string $string): string
     {
-        return '~' . $string . '~';
+        return sprintf("~%s~", $string);
     }
 
     /**
@@ -66,12 +66,11 @@ trait SlackMessageTrait
             throw new \InvalidArgumentException('The list must contain at least one value');
         }
 
-        $output = "\n";
-        foreach ($list as $value) {
-            $output .= "• " . $value . "\n";
+        foreach ($list as $key => $value) {
+            $list[$key] = "• " . $value;
         }
 
-        return $output;
+        return "\n" . implode("\n", $list) . "\n";
     }
 
     /**
@@ -122,7 +121,7 @@ trait SlackMessageTrait
      */
     public function formatLink(string $title, string $url): string
     {
-        return "<" . $url . "|" . $title . ">";
+        return sprintf("<%s|%s>", $url, $title);
     }
 
     /**
@@ -134,6 +133,7 @@ trait SlackMessageTrait
         $string = str_replace('&', '&amp;', $string);
         $string = str_replace('<', '&lt;', $string);
         $string = str_replace('>', '&gt;', $string);
+
         return $string;
     }
 }
