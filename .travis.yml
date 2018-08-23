@@ -28,4 +28,3 @@ install:
 
 script:
     - composer req --ignore-platform-reqs "${PACKAGES}"
-
