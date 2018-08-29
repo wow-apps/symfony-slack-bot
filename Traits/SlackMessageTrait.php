@@ -67,10 +67,10 @@ trait SlackMessageTrait
         }
 
         foreach ($list as $key => $value) {
-            $list[$key] = "• " . $value;
+            $list[$key] = sprintf('• %s', $value);
         }
 
-        return "\n" . implode("\n", $list) . "\n";
+        return sprintf("\n%s\n", implode("\n", $list));
     }
 
     /**
@@ -87,7 +87,7 @@ trait SlackMessageTrait
         $num = 0;
         $output = "\n";
         foreach ($list as $value) {
-            $output .= ++$num . ". " . $value . "\n";
+            $output .= sprintf("%s. %s\n", ++$num, $value);
         }
 
         return $output;

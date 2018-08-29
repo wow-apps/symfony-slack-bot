@@ -113,7 +113,7 @@ class SlackbotTestCommand extends ContainerAwareCommand
         $slackMessage = new SlackMessage();
 
         $quoteText = [
-            'This is ' . $this->formatBold('test') . ' message sent by SlackBot',
+            sprintf('This is %s message sent by SlackBot', $this->formatBold('test')),
             $this->formatCode([
                 '<?php',
                 '$someString = \'Hello world!\';',
