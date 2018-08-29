@@ -109,8 +109,9 @@ class SlackBot
      */
     private function buildPostBody(SlackMessage $slackMessage): string
     {
-        $this->validator->validateMessage($slackMessage);
+        $return = [];
 
+        $this->validator->validateMessage($slackMessage);
         $slackMessage = $this->validator->setDefaultsForEmptyFields($slackMessage, $this->getConfig());
 
         $return['text'] = $slackMessage->getText();
