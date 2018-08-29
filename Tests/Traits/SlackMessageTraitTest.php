@@ -80,6 +80,9 @@ class SlackMessageTraitTest extends TestCase
         $actual = $this->formatListMarker($lines);
 
         $this->assertEquals($expect, $actual);
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->formatListMarker([]);
     }
 
     public function testFormatListNumeric()
@@ -97,6 +100,9 @@ class SlackMessageTraitTest extends TestCase
         $actual = $this->formatListNumeric($lines);
 
         $this->assertEquals($expect, $actual);
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->formatListMarker([]);
     }
 
     public function testFormatCode()
