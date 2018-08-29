@@ -11,7 +11,7 @@
 
 [![Travis CI Build](https://img.shields.io/travis/wow-apps/symfony-slack-bot.svg?style=popuot&label=Travis%20CI%20build)](https://travis-ci.org/wow-apps/symfony-slack-bot)
 [![Scrutinizer Build](https://img.shields.io/scrutinizer/build/g/wow-apps/symfony-slack-bot.svg?style=popout&label=Scrutinizer%20build)](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/?branch=master)
-[![ContinuousPHP Build](https://img.shields.io/continuousphp/git-hub/wow-apps/symfony-slack-bot/master.svg?style=popout&label=ContinuousPHP%20build)](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/?branch=master)
+[![ContinuousPHP Build](https://img.shields.io/continuousphp/git-hub/wow-apps/symfony-slack-bot/master.svg?style=popout&label=ContinuousPHP%20build)](https://app.continuousphp.com/git-hub/wow-apps/symfony-slack-bot)
 
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/wow-apps/symfony-slack-bot.svg?style=popout&label=Code%20coverage)](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/?branch=master)
 
