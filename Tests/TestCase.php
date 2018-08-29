@@ -18,7 +18,7 @@ use PHPUnit\Framework\TestCase as PHPUnitTestCase;
  * @author Alexey Samara <lion.samara@gmail.com>
  * @package WowApps\SlackBundle
  */
-class TestCase extends PHPUnitTestCase
+abstract class TestCase extends PHPUnitTestCase
 {
     const ARRAY_MIN_ITEMS = 2;
     const ARRAY_MAX_ITEMS = 10;

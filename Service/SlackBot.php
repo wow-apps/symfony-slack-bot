@@ -27,6 +27,13 @@ class SlackBot
     const QUOTE_SUCCESS   = 2;
     const QUOTE_WARNING   = 3;
     const QUOTE_INFO      = 4;
+    const QUOTE_MAP       = [
+        self::QUOTE_DEFAULT  => 'default',
+        self::QUOTE_DANGER   => 'danger',
+        self::QUOTE_SUCCESS  => 'success',
+        self::QUOTE_WARNING  => 'warning',
+        self::QUOTE_INFO     => 'info'
+    ];
 
     /** @var array */
     private $config;
@@ -72,26 +79,11 @@ class SlackBot
      */
     public function quoteTypeColor(int $quoteType): string
     {
-        switch ($quoteType) {
-            case self::QUOTE_DANGER:
-                $colorHEX = $this->config['quote_color']['danger'];
-                break;
-            case self::QUOTE_SUCCESS:
-                $colorHEX = $this->config['quote_color']['success'];
-                break;
-            case self::QUOTE_WARNING:
-                $colorHEX = $this->config['quote_color']['warning'];
-                break;
-            case self::QUOTE_INFO:
-                $colorHEX = $this->config['quote_color']['info'];
-                break;
-            case self::QUOTE_DEFAULT:
-            default:
-                $colorHEX = $this->config['quote_color']['default'];
-                break;
+        if (!in_array($quoteType, self::QUOTE_MAP)) {
+            throw new \InvalidArgumentException('Unknown quote type');
         }
 
-        return $colorHEX;
+        return $this->config['quote_color'][self::QUOTE_MAP[$quoteType]];
     }
 
     /**

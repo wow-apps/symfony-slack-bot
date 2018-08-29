@@ -113,6 +113,7 @@ Do you want to make a change? Pull requests are welcome.
 # Changelog of 3rd version:
 
 ## Added
+* [3.2.8] More test coverage
 * [3.2.7] Template for new pull request
 * [3.2.7] PHPUnit configuration
 * [3.2.6] phpunit test for Traits
@@ -124,6 +125,9 @@ Do you want to make a change? Pull requests are welcome.
 * [3.1.0] Missing phpDocs
     
 ## Changed
+* [3.2.8] TravisCI configuration
+* [3.2.8] Little optimisation for Scrutinizer
+* [3.2.8] Little optimisation for Codacy
 * [3.2.7] TravisCI configuration
 * [3.2.6] Fixed wrong using of custom exception
 * [3.2.6] TravisCI configuration
