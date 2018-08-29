@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 - Little optimisation for Codacy
+- Fixed Travis CI configuration
 
 ## [3.2.7] - 2018-08-23
 ### Added

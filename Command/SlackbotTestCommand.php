@@ -41,16 +41,36 @@ class SlackbotTestCommand extends ContainerAwareCommand
     {
         /** @var SlackBot $slackBot */
         $slackBot = $this->getContainer()->get('wowapps.slackbot');
-        $slackBotConfig = $slackBot->getConfig();
-
         $symfonyStyle = new SymfonyStyle($input, $output);
 
+        $this->drawHeader($output);
+
+        $this->drawConfig($symfonyStyle, $slackBot->getConfig());
+
+        $symfonyStyle->section('Sending short message...');
+
+        if (!$this->sendTestMessage($slackBot)) {
+            $symfonyStyle->error('Message not sent');
+            return;
+        }
+
+        $symfonyStyle->success('Message sent successfully');
+    }
+
+    /**
+     * @param OutputInterface $output
+     */
+    private function drawHeader(OutputInterface $output)
+    {
         echo PHP_EOL;
         $output->writeln('<bg=blue;options=bold;fg=white>                                               </>');
         $output->writeln('<bg=blue;options=bold;fg=white>           S L A C K B O T   T E S T           </>');
         $output->writeln('<bg=blue;options=bold;fg=white>                                               </>');
         echo PHP_EOL;
+    }
 
+    private function drawConfig(SymfonyStyle $symfonyStyle, array $slackBotConfig)
+    {
         $symfonyStyle->section('SlackBot general settings');
 
         $symfonyStyle->table(
@@ -82,15 +102,6 @@ class SlackbotTestCommand extends ContainerAwareCommand
                 ]
             ]
         );
-
-        $symfonyStyle->section('Sending short message...');
-
-        if (!$this->sendTestMessage($slackBot)) {
-            $symfonyStyle->error('Message not sent');
-            return;
-        }
-
-        $symfonyStyle->success('Message sent successfully');
     }
 
     /**
