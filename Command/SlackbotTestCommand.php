@@ -85,11 +85,12 @@ class SlackbotTestCommand extends ContainerAwareCommand
 
         $symfonyStyle->section('Sending short message...');
 
-        if ($this->sendTestMessage($slackBot)) {
-            $symfonyStyle->success('Message sent successfully');
-        } else {
+        if (!$this->sendTestMessage($slackBot)) {
             $symfonyStyle->error('Message not sent');
+            return;
         }
+
+        $symfonyStyle->success('Message sent successfully');
     }
 
     /**

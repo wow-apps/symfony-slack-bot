@@ -84,10 +84,10 @@ trait SlackMessageTrait
             throw new \InvalidArgumentException('The list must contain at least one value');
         }
 
-        $n = 0;
+        $num = 0;
         $output = "\n";
         foreach ($list as $value) {
-            $output .= ++$n . ". " . $value . "\n";
+            $output .= ++$num . ". " . $value . "\n";
         }
 
         return $output;
