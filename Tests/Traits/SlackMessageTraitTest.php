@@ -102,7 +102,7 @@ class SlackMessageTraitTest extends TestCase
         $this->assertEquals($expect, $actual);
 
         $this->expectException(\InvalidArgumentException::class);
-        $this->formatListMarker([]);
+        $this->formatListNumeric([]);
     }
 
     public function testFormatCode()
