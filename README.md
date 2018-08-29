@@ -1,5 +1,6 @@
 ![SlackBot banner](http://cdn.wow-apps.pro/slackbot/symfony-slack-bot-banner-v2.png)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ce3fffd811f2463a94ed4065a341885a)](https://app.codacy.com/app/lion-samara/symfony-slack-bot?utm_source=github.com&utm_medium=referral&utm_content=wow-apps/symfony-slack-bot&utm_campaign=Badge_Grade_Dashboard)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/9e427ba8-ceee-47a4-aeef-a788b9875064/big.png)](https://insight.sensiolabs.com/projects/9e427ba8-ceee-47a4-aeef-a788b9875064)
 
 [![Packagist Pre Release](https://img.shields.io/packagist/v/wow-apps/symfony-slack-bot.svg?maxAge=2592000&style=flat-square)](https://packagist.org/packages/wow-apps/symfony-slack-bot)
