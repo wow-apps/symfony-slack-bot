@@ -79,7 +79,7 @@ class SlackBot
      */
     public function quoteTypeColor(int $quoteType): string
     {
-        if (!in_array($quoteType, self::QUOTE_MAP)) {
+        if (!array_key_exists($quoteType, self::QUOTE_MAP)) {
             throw new \InvalidArgumentException('Unknown quote type');
         }
 
