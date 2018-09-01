@@ -11,17 +11,21 @@
 
 namespace WowApps\SlackBundle\Traits;
 
+use WowApps\SlackBundle\Exception\SlackbotException;
+
 /**
  * Trait SlackMessageTrait
  *
  * @author Alexey Samara <lion.samara@gmail.com>
  * @package WowApps\SlackBundle
+ * @see https://github.com/wow-apps/symfony-slack-bot/wiki/3.-Additional-helpers
  */
 trait SlackMessageTrait
 {
     /**
      * @param array $lines
      * @return string
+     * @see https://github.com/wow-apps/symfony-slack-bot/wiki/3.-Additional-helpers#multilines
      */
     public function inlineMultilines(array $lines): string
     {
@@ -31,6 +35,7 @@ trait SlackMessageTrait
     /**
      * @param string $string
      * @return string
+     * @see https://github.com/wow-apps/symfony-slack-bot/wiki/3.-Additional-helpers#bold-text
      */
     public function formatBold(string $string): string
     {
@@ -40,6 +45,7 @@ trait SlackMessageTrait
     /**
      * @param string $string
      * @return string
+     * @see https://github.com/wow-apps/symfony-slack-bot/wiki/3.-Additional-helpers#italic-text
      */
     public function formatItalic(string $string): string
     {
@@ -49,6 +55,7 @@ trait SlackMessageTrait
     /**
      * @param string $string
      * @return string
+     * @see https://github.com/wow-apps/symfony-slack-bot/wiki/3.-Additional-helpers#strike-thought-text
      */
     public function formatStrikeThought(string $string): string
     {
@@ -58,12 +65,13 @@ trait SlackMessageTrait
     /**
      * @param array $list
      * @return string
-     * @throws \InvalidArgumentException
+     * @throws SlackbotException
+     * @see https://github.com/wow-apps/symfony-slack-bot/wiki/3.-Additional-helpers#unordered-list
      */
     public function formatListMarker(array $list): string
     {
         if (empty($list)) {
-            throw new \InvalidArgumentException('The list must contain at least one value');
+            throw new SlackbotException(SlackbotException::E_EMPTY_LIST);
         }
 
         foreach ($list as $key => $value) {
@@ -76,12 +84,13 @@ trait SlackMessageTrait
     /**
      * @param array $list
      * @return string
-     * @throws \InvalidArgumentException
+     * @throws SlackbotException
+     * @see https://github.com/wow-apps/symfony-slack-bot/wiki/3.-Additional-helpers#ordered-list
      */
     public function formatListNumeric(array $list): string
     {
         if (empty($list)) {
-            throw new \InvalidArgumentException('The list must contain at least one value');
+            throw new SlackbotException(SlackbotException::E_EMPTY_LIST);
         }
 
         $num = 0;
@@ -96,6 +105,7 @@ trait SlackMessageTrait
     /**
      * @param array $lines
      * @return string
+     * @see https://github.com/wow-apps/symfony-slack-bot/wiki/3.-Additional-helpers#code
      */
     public function formatCode(array $lines): string
     {
@@ -108,6 +118,7 @@ trait SlackMessageTrait
 
     /**
      * @return string
+     * @see https://github.com/wow-apps/symfony-slack-bot/wiki/3.-Additional-helpers#new-line
      */
     public function newLine(): string
     {
@@ -118,6 +129,7 @@ trait SlackMessageTrait
      * @param string $title
      * @param string $url
      * @return string
+     * @see https://github.com/wow-apps/symfony-slack-bot/wiki/3.-Additional-helpers#clickable-link
      */
     public function formatLink(string $title, string $url): string
     {
@@ -127,6 +139,7 @@ trait SlackMessageTrait
     /**
      * @param string $string
      * @return string
+     * @see https://github.com/wow-apps/symfony-slack-bot/wiki/3.-Additional-helpers#escape-special-characters
      */
     public function escapeCharacters(string $string): string
     {

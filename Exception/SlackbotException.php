@@ -21,5 +21,6 @@ use Psr\Log\InvalidArgumentException;
  */
 class SlackbotException extends InvalidArgumentException
 {
-    const E_EMPTY_MESSAGE = "Message can't be empty";
+    const E_EMPTY_MESSAGE = 'Message can\'t be empty';
+    const E_EMPTY_LIST = 'The list must contain at least one value for format';
 }

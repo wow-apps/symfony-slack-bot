@@ -18,6 +18,7 @@ use WowApps\SlackBundle\Traits\SlackMessageTrait;
  *
  * @author Alexey Samara <lion.samara@gmail.com>
  * @package WowApps\SlackBundle
+ * @see https://github.com/wow-apps/symfony-slack-bot/wiki/2.-Using-SlackBot#fill-dto
  */
 class SlackMessage
 {

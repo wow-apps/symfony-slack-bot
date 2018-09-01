@@ -3,7 +3,7 @@
  * This file is part of the WoW-Apps/Symfony-Slack-Bot bundle for Symfony 3
  * https://github.com/wow-apps/symfony-slack-bot
  *
- * (c) 2016 WoW-Apps
+ * (c) 2018 WoW-Apps
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,6 +11,7 @@
 
 namespace WowApps\SlackBundle\Tests\Traits;
 
+use WowApps\SlackBundle\Exception\SlackbotException;
 use WowApps\SlackBundle\Tests\TestCase;
 use WowApps\SlackBundle\Traits\SlackMessageTrait;
 
@@ -81,7 +82,7 @@ class SlackMessageTraitTest extends TestCase
 
         $this->assertEquals($expect, $actual);
 
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(SlackbotException::class);
         $this->formatListMarker([]);
     }
 
@@ -101,7 +102,7 @@ class SlackMessageTraitTest extends TestCase
 
         $this->assertEquals($expect, $actual);
 
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(SlackbotException::class);
         $this->formatListNumeric([]);
     }
 

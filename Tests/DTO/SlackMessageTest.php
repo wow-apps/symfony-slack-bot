@@ -3,7 +3,7 @@
  * This file is part of the WoW-Apps/Symfony-Slack-Bot bundle for Symfony 3
  * https://github.com/wow-apps/symfony-slack-bot
  *
- * (c) 2016 WoW-Apps
+ * (c) 2018 WoW-Apps
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -39,7 +39,7 @@ class SlackMessageTest extends TestCase
             'quote_title'      => $this->randomString(),
             'quote_title_link' => $this->randomString(),
             'quote_text'       => $this->randomString(),
-            'show_quote'       => (bool)rand(0, 1),
+            'show_quote'       => (bool) rand(0, 1),
             'recipient'        => $this->randomString(),
             'sender'           => $this->randomString(),
         ];
