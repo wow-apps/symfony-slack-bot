@@ -115,6 +115,7 @@ Do you want to make a change? Pull requests are welcome.
 # Changelog of 3rd version:
 
 ## Added
+* [3.2.9] All public methods was covered by tests
 * [3.2.8] More test coverage
 * [3.2.7] Template for new pull request
 * [3.2.7] PHPUnit configuration
