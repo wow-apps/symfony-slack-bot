@@ -15,16 +15,12 @@ use WowApps\SlackBundle\DTO\SlackMessage;
 use WowApps\SlackBundle\Exception\SlackbotException;
 
 /**
- * Class SlackMessageValidator
- *
  * @author Alexey Samara <lion.samara@gmail.com>
  * @package WowApps\SlackBundle
  */
 class SlackMessageValidator
 {
     /**
-     * Validate fields
-     *
      * @param SlackMessage $slackMessage
      * @return void
      */
@@ -36,8 +32,6 @@ class SlackMessageValidator
     }
 
     /**
-     * Setting default values for empty fields
-     *
      * @param SlackMessage $slackMessage
      * @param array $config
      * @return SlackMessage

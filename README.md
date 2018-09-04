@@ -128,6 +128,7 @@ Do you want to make a change? Pull requests are welcome.
 * [3.1.0] Missing phpDocs
     
 ## Changed
+* [3.2.10] Some cosmetic changes
 * [3.2.8] TravisCI configuration
 * [3.2.8] Little optimisation for Scrutinizer
 * [3.2.8] Little optimisation for Codacy

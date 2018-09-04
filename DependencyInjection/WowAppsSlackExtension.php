@@ -17,15 +17,15 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
 /**
- * Class WowAppsSlackExtension
- *
  * @author Alexey Samara <lion.samara@gmail.com>
  * @package WowApps\SlackBundle
  */
 class WowAppsSlackExtension extends Extension
 {
     /**
-     * {@inheritdoc}
+     * @param array $configs
+     * @param ContainerBuilder $container
+     * @throws \Exception
      */
     public function load(array $configs, ContainerBuilder $container)
     {

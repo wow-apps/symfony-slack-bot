@@ -14,8 +14,6 @@ namespace WowApps\SlackBundle\DTO;
 use WowApps\SlackBundle\Traits\SlackMessageTrait;
 
 /**
- * Class SlackMessage
- *
  * @author Alexey Samara <lion.samara@gmail.com>
  * @package WowApps\SlackBundle
  * @see https://github.com/wow-apps/symfony-slack-bot/wiki/2.-Using-SlackBot#fill-dto
@@ -52,7 +50,6 @@ class SlackMessage
     private $sender;
 
     /**
-     * SlackMessage constructor.
      * @param string $icon
      * @param string $text
      * @param int $quoteType

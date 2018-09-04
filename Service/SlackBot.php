@@ -12,11 +12,10 @@
 namespace WowApps\SlackBundle\Service;
 
 use GuzzleHttp\Client as GuzzleClient;
+use Symfony\Component\HttpFoundation\Response;
 use WowApps\SlackBundle\DTO\SlackMessage;
 
 /**
- * Class SlackBot
- *
  * @author Alexey Samara <lion.samara@gmail.com>
  * @package WowApps\SlackBundle
  * @see https://github.com/wow-apps/symfony-slack-bot/wiki/2.-Using-SlackBot
@@ -36,6 +35,12 @@ class SlackBot
         self::QUOTE_INFO     => 'info'
     ];
 
+    const ALLOWED_RESPONSE_STATUSES = [
+        Response::HTTP_OK,
+        Response::HTTP_MOVED_PERMANENTLY,
+        Response::HTTP_FOUND
+    ];
+
     /** @var array */
     private $config;
 
@@ -46,8 +51,6 @@ class SlackBot
     private $validator;
 
     /**
-     * SlackBot constructor.
-     *
      * @param array $config
      * @param SlackMessageValidator $validator
      */

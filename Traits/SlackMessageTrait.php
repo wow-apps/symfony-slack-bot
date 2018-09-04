@@ -14,8 +14,6 @@ namespace WowApps\SlackBundle\Traits;
 use WowApps\SlackBundle\Exception\SlackbotException;
 
 /**
- * Trait SlackMessageTrait
- *
  * @author Alexey Samara <lion.samara@gmail.com>
  * @package WowApps\SlackBundle
  * @see https://github.com/wow-apps/symfony-slack-bot/wiki/3.-Additional-helpers

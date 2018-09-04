@@ -20,8 +20,6 @@ use WowApps\SlackBundle\Service\SlackBot;
 use WowApps\SlackBundle\Traits\SlackMessageTrait;
 
 /**
- * Class SlackbotTestCommand
- *
  * @author Alexey Samara <lion.samara@gmail.com>
  * @package WowApps\SlackBundle
  * @see https://github.com/wow-apps/symfony-slack-bot/wiki/1.-Installation#send-test-message
@@ -30,27 +28,44 @@ class SlackbotTestCommand extends ContainerAwareCommand
 {
     use SlackMessageTrait;
 
+    /** @var SlackBot */
+    private $slackBot;
+
+    /**
+     * @param string $name
+     * @param SlackBot $slackBot
+     */
+    public function __construct(string $name, SlackBot $slackBot)
+    {
+        parent::__construct($name);
+        $this->slackBot = $slackBot;
+    }
+
+    /**
+     * @inheritdoc
+     */
     protected function configure()
     {
         $this
             ->setName('wowapps:slackbot:test')
-            ->setDescription('Test your settings and try to send messages')
-        ;
+            ->setDescription('Test your settings and try to send messages');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int|null|void
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        /** @var SlackBot $slackBot */
-        $slackBot = $this->getContainer()->get('wowapps.slackbot');
-        $symfonyStyle = new SymfonyStyle($input, $output);
-
         $this->drawHeader($output);
 
-        $this->drawConfig($symfonyStyle, $slackBot->getConfig());
+        $symfonyStyle = new SymfonyStyle($input, $output);
+        $this->drawConfig($symfonyStyle, $this->slackBot->getConfig());
 
         $symfonyStyle->section('Sending short message...');
 
-        if (!$this->sendTestMessage($slackBot)) {
+        if (!$this->sendTestMessage()) {
             $symfonyStyle->error('Message not sent');
             return;
         }
@@ -70,6 +85,10 @@ class SlackbotTestCommand extends ContainerAwareCommand
         echo PHP_EOL;
     }
 
+    /**
+     * @param SymfonyStyle $symfonyStyle
+     * @param array $slackBotConfig
+     */
     private function drawConfig(SymfonyStyle $symfonyStyle, array $slackBotConfig)
     {
         $symfonyStyle->section('SlackBot general settings');
@@ -106,10 +125,9 @@ class SlackbotTestCommand extends ContainerAwareCommand
     }
 
     /**
-     * @param SlackBot $slackBot
      * @return bool
      */
-    private function sendTestMessage(SlackBot $slackBot)
+    private function sendTestMessage()
     {
         $slackMessage = new SlackMessage();
 
@@ -134,6 +152,6 @@ class SlackbotTestCommand extends ContainerAwareCommand
             ->setQuoteTitleLink('https://github.com/wow-apps/symfony-slack-bot')
         ;
 
-        return $slackBot->sendMessage($slackMessage);
+        return $this->slackBot->sendMessage($slackMessage);
     }
 }

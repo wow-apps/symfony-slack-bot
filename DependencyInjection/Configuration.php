@@ -15,14 +15,13 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
- * Class Configuration
  * @author Alexey Samara <lion.samara@gmail.com>
  * @package WowApps\SlackBundle
  */
 class Configuration implements ConfigurationInterface
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getConfigTreeBuilder()
     {
@@ -44,8 +43,8 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('danger')->defaultValue('#F44336')->end()
                     ->end()
                 ->end()
-            ->end()
-        ;
+            ->end();
+
         return $treeBuilder;
     }
 }

@@ -14,8 +14,6 @@ namespace WowApps\SlackBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class WowAppsSlackBundle
- *
  * @author Alexey Samara <lion.samara@gmail.com>
  * @package WowApps\SlackBundle
  */

@@ -14,8 +14,6 @@ namespace WowApps\SlackBundle\Exception;
 use Psr\Log\InvalidArgumentException;
 
 /**
- * Class SlackbotException
- *
  * @author Alexey Samara <lion.samara@gmail.com>
  * @package WowApps\SlackBundle
  */

@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.2.10] - 2018-09-04
+### Changed
+- Some cosmetic changes
+
 ## [3.2.9] - 2018-09-01
 ### Added
 - All public methods was covered by tests
