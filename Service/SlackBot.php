@@ -111,6 +111,7 @@ class SlackBot
         $slackMessage = $this->validator->setDefaultsForEmptyFields($slackMessage, $this->getConfig());
 
         $return['text'] = $slackMessage->getText();
+        $return['channel'] = $slackMessage->getRecipient();
         $return['mrkdwn'] = true;
 
         if ($slackMessage->isShowQuote()) {
