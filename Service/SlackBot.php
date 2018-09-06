@@ -138,7 +138,7 @@ class SlackBot
     private function sendRequest(string $postBody): bool
     {
         $request = $this->guzzleClient->post($this->config['api_url'], ['body' => $postBody]);
-        if (!in_array($request->getStatusCode(), [200, 301, 302])) {
+        if (!in_array($request->getStatusCode(), self::ALLOWED_RESPONSE_STATUSES)) {
             return false;
         }
 
