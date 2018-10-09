@@ -23,11 +23,24 @@ class SlackMessageValidator
     /**
      * @param SlackMessage $slackMessage
      * @return void
+     * @throws SlackbotException
      */
     public function validateMessage(SlackMessage $slackMessage)
     {
         if (!$slackMessage->getText()) {
             throw new SlackbotException(SlackbotException::E_EMPTY_MESSAGE);
+        }
+    }
+
+    /**
+     * @param SlackMessage $slackMessage
+     * @return void
+     * @throws SlackbotException
+     */
+    public function validateIconEmoji(SlackMessage $slackMessage)
+    {
+        if (!empty($slackMessage->getIconEmoji()) && !preg_match('/^\:(.*?)\:$/i', $slackMessage->getIconEmoji())) {
+            throw new SlackbotException(SlackbotException::E_INCORRECT_ICON_EMOJI);
         }
     }
 

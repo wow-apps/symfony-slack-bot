@@ -13,6 +13,7 @@ namespace WowApps\SlackBundle\Tests\Service;
 
 use WowApps\SlackBundle\DTO\SlackMessage;
 use WowApps\SlackBundle\Exception\SlackbotException;
+use WowApps\SlackBundle\Service\SlackEmoji;
 use WowApps\SlackBundle\Service\SlackMessageValidator;
 use WowApps\SlackBundle\Tests\TestCase;
 
@@ -55,10 +56,22 @@ class SlackMessageValidatorTest extends TestCase
     public function testValidateMessage()
     {
         $this->slackMessageDto->setText('');
-
         $this->expectException(SlackbotException::class);
         $this->slackMessageValidator->validateMessage($this->slackMessageDto);
 
-        $this->slackMessageDto->setText($this->randomString()); // roll back text for DTO
+        // rollback valid value
+        $this->slackMessageDto->setText($this->randomString());
+    }
+
+    public function testValidateIconEmoji()
+    {
+        $this->slackMessageDto->setIconEmoji($this->randomString());
+        $this->expectException(SlackbotException::class);
+        $this->slackMessageValidator->validateIconEmoji($this->slackMessageDto);
+
+        // rollback valid value
+        $reflectionClass = new \ReflectionClass(SlackEmoji::class);
+        $emojies = array_values($reflectionClass->getConstants());
+        $this->slackMessageDto->setIconEmoji($emojies[rand(0, (count($emojies) - 1))]);
     }
 }

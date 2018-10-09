@@ -17,6 +17,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use WowApps\SlackBundle\DTO\SlackMessage;
 use WowApps\SlackBundle\Service\SlackBot;
+use WowApps\SlackBundle\Service\SlackEmoji;
 use WowApps\SlackBundle\Traits\SlackMessageTrait;
 
 /**
@@ -24,22 +25,12 @@ use WowApps\SlackBundle\Traits\SlackMessageTrait;
  * @package WowApps\SlackBundle
  * @see https://github.com/wow-apps/symfony-slack-bot/wiki/1.-Installation#send-test-message
  */
-class SlackbotTestCommand extends ContainerAwareCommand
+class WowappsSlackbotTestCommand extends ContainerAwareCommand
 {
     use SlackMessageTrait;
 
     /** @var SlackBot */
     private $slackBot;
-
-    /**
-     * @param string $name
-     * @param SlackBot $slackBot
-     */
-    public function __construct(string $name, SlackBot $slackBot)
-    {
-        parent::__construct($name);
-        $this->slackBot = $slackBot;
-    }
 
     /**
      * @inheritdoc
@@ -58,6 +49,9 @@ class SlackbotTestCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        /** Dirty hack for support in Symfony before version 3.4 */
+        $this->slackBot = $this->getContainer()->get('wowapps.slackbot');
+
         $this->drawHeader($output);
 
         $symfonyStyle = new SymfonyStyle($input, $output);
@@ -140,8 +134,12 @@ class SlackbotTestCommand extends ContainerAwareCommand
             ])
         ];
 
+        $reflectionClass = new \ReflectionClass(SlackEmoji::class);
+        $iconsArray = array_values($reflectionClass->getConstants());
+        $randomIcon = $iconsArray[rand(0, (count($iconsArray) - 1))];
+
         $slackMessage
-            ->setIcon('http://cdn.wow-apps.pro/slackbot/slack-bot-icon-48.png')
+            ->setIconEmoji($randomIcon)
             ->setText('If you read this - SlackBot is working!')
             ->setRecipient('general')
             ->setSender('WoW-Apps')

@@ -21,4 +21,5 @@ class SlackbotException extends InvalidArgumentException
 {
     const E_EMPTY_MESSAGE = 'Message can\'t be empty';
     const E_EMPTY_LIST = 'The list must contain at least one value for format';
+    const E_INCORRECT_ICON_EMOJI = 'Incorrect icon emoji';
 }

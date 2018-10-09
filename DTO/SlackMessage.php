@@ -22,8 +22,19 @@ class SlackMessage
 {
     use SlackMessageTrait;
 
-    /** @var string */
+    /**
+     * This property will be removed in version 3.3
+     *
+     * @deprecated
+     * @var string
+     */
     private $icon;
+
+    /** @var string */
+    private $iconUrl;
+
+    /** @var string */
+    private $iconEmoji;
 
     /** @var string */
     private $text;
@@ -85,20 +96,77 @@ class SlackMessage
     }
 
     /**
+     * This method will be removed in version 3.3
+     *
+     * @deprecated
      * @return string
      */
     public function getIcon(): string
     {
-        return $this->icon;
+        // TODO: this dirty hack will be removed in version 3.3
+        if (!empty($this->getIconUrl())) {
+            return $this->getIconUrl();
+        }
+
+        if (!empty($this->getIconEmoji())) {
+            return $this->getIconEmoji();
+        }
+
+        return '';
     }
 
     /**
+     * This method will be removed in version 3.3
+     *
+     * @deprecated
      * @param string $icon
      * @return SlackMessage
      */
-    public function setIcon(string $icon)
+    public function setIcon(string $icon): SlackMessage
     {
-        $this->icon = $icon;
+        // TODO: this dirty hack will be removed in version 3.3
+        if (preg_match('/^\:(.*?)\:$/i', $icon)) {
+            $this->setIconEmoji($icon);
+            return $this;
+        }
+
+        $this->setIconUrl($icon);
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIconUrl(): string
+    {
+        return $this->iconUrl;
+    }
+
+    /**
+     * @param string $iconUrl
+     * @return SlackMessage
+     */
+    public function setIconUrl(string $iconUrl): SlackMessage
+    {
+        $this->iconUrl = $iconUrl;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIconEmoji(): string
+    {
+        return $this->iconEmoji;
+    }
+
+    /**
+     * @param string $iconEmoji
+     * @return SlackMessage
+     */
+    public function setIconEmoji(string $iconEmoji): SlackMessage
+    {
+        $this->iconEmoji = $iconEmoji;
         return $this;
     }
 
@@ -114,7 +182,7 @@ class SlackMessage
      * @param string $text
      * @return SlackMessage
      */
-    public function setText(string $text)
+    public function setText(string $text): SlackMessage
     {
         $this->text = $this->escapeCharacters($text);
         return $this;
@@ -132,7 +200,7 @@ class SlackMessage
      * @param int $quoteType
      * @return SlackMessage
      */
-    public function setQuoteType(int $quoteType)
+    public function setQuoteType(int $quoteType): SlackMessage
     {
         $this->quoteType = $quoteType;
         return $this;
@@ -150,7 +218,7 @@ class SlackMessage
      * @param string $quoteTitle
      * @return SlackMessage
      */
-    public function setQuoteTitle(string $quoteTitle)
+    public function setQuoteTitle(string $quoteTitle): SlackMessage
     {
         $this->quoteTitle = $this->escapeCharacters($quoteTitle);
         return $this;
@@ -168,7 +236,7 @@ class SlackMessage
      * @param string $quoteTitleLink
      * @return SlackMessage
      */
-    public function setQuoteTitleLink(string $quoteTitleLink)
+    public function setQuoteTitleLink(string $quoteTitleLink): SlackMessage
     {
         $this->quoteTitleLink = $this->escapeCharacters($quoteTitleLink);
         return $this;
@@ -186,7 +254,7 @@ class SlackMessage
      * @param string $quoteText
      * @return SlackMessage
      */
-    public function setQuoteText(string $quoteText)
+    public function setQuoteText(string $quoteText): SlackMessage
     {
         $this->quoteText = $this->escapeCharacters($quoteText);
         return $this;
@@ -204,7 +272,7 @@ class SlackMessage
      * @param bool $showQuote
      * @return SlackMessage
      */
-    public function setShowQuote(bool $showQuote)
+    public function setShowQuote(bool $showQuote): SlackMessage
     {
         $this->showQuote = $showQuote;
         return $this;
@@ -222,7 +290,7 @@ class SlackMessage
      * @param string $recipient
      * @return SlackMessage
      */
-    public function setRecipient(string $recipient)
+    public function setRecipient(string $recipient): SlackMessage
     {
         $this->recipient = $this->escapeCharacters($recipient);
         return $this;
@@ -240,7 +308,7 @@ class SlackMessage
      * @param string $sender
      * @return SlackMessage
      */
-    public function setSender(string $sender)
+    public function setSender(string $sender): SlackMessage
     {
         $this->sender = $this->escapeCharacters($sender);
         return $this;

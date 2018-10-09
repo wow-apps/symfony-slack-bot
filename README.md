@@ -115,6 +115,11 @@ Do you want to make a change? Pull requests are welcome.
 # Changelog of 3rd version:
 
 ## Added
+* [3.2.12] Functions `getIconUrl`, `setIconUrl`, `getIconEmoji` and `setIconEmoji`
+* [3.2.12] Class `SlackEmoji` with many constants of Slack emojis
+* [3.2.12] Flag `JSON_UNESCAPED_SLASHES` for outgoing message body ([Issue #9](https://github.com/wow-apps/symfony-slack-bot/issues/9))
+* [3.2.12] Emoji format validator
+* [3.2.12] Some new tests
 * [3.2.9] All public methods was covered by tests
 * [3.2.8] More test coverage
 * [3.2.7] Template for new pull request
@@ -128,6 +133,9 @@ Do you want to make a change? Pull requests are welcome.
 * [3.1.0] Missing phpDocs
     
 ## Changed
+* [3.2.12] Fixed setting of message icon ([Issue #9](https://github.com/wow-apps/symfony-slack-bot/issues/9))
+* [3.2.12] Functions `setIcon` and `getIcon` for SlackBot DTO set as deprecated and will be removed in version 3.3 ([Issue #9](https://github.com/wow-apps/symfony-slack-bot/issues/9))
+* [3.2.12] Test command now send message with random emoji as icon
 * [3.2.11] Fixed bug. Messages always goes to default channel before
 * [3.2.10] Some cosmetic changes
 * [3.2.8] TravisCI configuration

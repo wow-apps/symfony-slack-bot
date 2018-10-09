@@ -113,6 +113,16 @@ class SlackBot
         $return['text'] = $slackMessage->getText();
         $return['channel'] = $slackMessage->getRecipient();
         $return['mrkdwn'] = true;
+        $return['as_user'] = false;
+
+        if (!empty($slackMessage->getIconUrl())) {
+            $return['icon_url'] = $slackMessage->getIconUrl();
+        }
+
+        if (empty($slackMessage->getIconUrl()) && !empty($slackMessage->getIconEmoji())) {
+            $this->validator->validateIconEmoji($slackMessage);
+            $return['icon_emoji'] = $slackMessage->getIconEmoji();
+        }
 
         if ($slackMessage->isShowQuote()) {
             $return['attachments'] = [
@@ -128,7 +138,7 @@ class SlackBot
             ];
         }
 
-        return json_encode($return, JSON_UNESCAPED_UNICODE);
+        return json_encode($return, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     }
 
     /**
