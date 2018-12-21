@@ -87,18 +87,13 @@ To test your configuration, send test message by next command:
 ![Test command result preview](http://cdn.wow-apps.pro/slackbot/slackbot_preview-v2.jpg)
 
 
-# Documentation
-
-* [Home](https://github.com/wow-apps/symfony-slack-bot/wiki)
-    * [Installation](https://github.com/wow-apps/symfony-slack-bot/wiki/1.-Installation)
-    * [Using SlackBot](https://github.com/wow-apps/symfony-slack-bot/wiki/2.-Using-SlackBot)
-    * [Additional helpers](https://github.com/wow-apps/symfony-slack-bot/wiki/3.-Additional-helpers)
+# [Documentation](https://wow-apps.github.io/symfony-slack-bot/docs/#/)
     
-# News and updates:
+# News and updates
 
 Follow news and updates in my Telegram channel [@wow_apps_pro](https://t.me/wow_apps_pro) or Twitter [@alexey_samara_](https://twitter.com/alexey_samara_)
 
-# Say thanks:
+# Say thanks
 
 I don't ask for donates, I do what I do for free, for all development community. But I will be grateful if you inform me on the email in which project you are using this Bundle, as well as I will be glad to criticize and suggestions. 
 
@@ -133,6 +128,7 @@ Do you want to make a change? Pull requests are welcome.
 * [3.1.0] Missing phpDocs
     
 ## Changed
+* [3.2.13] Fixed characters replacement for links in trait ([Issue #11](https://github.com/wow-apps/symfony-slack-bot/issues/11))
 * [3.2.12] Fixed setting of message icon ([Issue #9](https://github.com/wow-apps/symfony-slack-bot/issues/9))
 * [3.2.12] Functions `setIcon` and `getIcon` for SlackBot DTO set as deprecated and will be removed in version 3.3 ([Issue #9](https://github.com/wow-apps/symfony-slack-bot/issues/9))
 * [3.2.12] Test command now send message with random emoji as icon
