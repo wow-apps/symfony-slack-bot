@@ -120,6 +120,7 @@ class WowappsSlackbotTestCommand extends ContainerAwareCommand
 
     /**
      * @return bool
+     * @throws \ReflectionException
      */
     private function sendTestMessage()
     {
@@ -146,7 +147,7 @@ class WowappsSlackbotTestCommand extends ContainerAwareCommand
             ->setShowQuote(true)
             ->setQuoteType(SlackBot::QUOTE_SUCCESS)
             ->setQuoteText($this->inlineMultilines($quoteText))
-            ->setQuoteTitle('SlackBot for Symfony 3')
+            ->setQuoteTitle('SlackBot for Symfony 3 and 4')
             ->setQuoteTitleLink('https://github.com/wow-apps/symfony-slack-bot')
         ;
 

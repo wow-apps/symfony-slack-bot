@@ -40,7 +40,6 @@ class SlackMessageTest extends TestCase
         $this->emojies = array_values($reflectionClass->getConstants());
 
         $this->testData = [
-            'icon'             => $this->randomString(),
             'icon_url'         => $this->randomString(),
             'icon_emoji'       => $this->emojies[rand(0, (count($this->emojies) - 1))],
             'text'             => $this->randomString(),
@@ -54,7 +53,6 @@ class SlackMessageTest extends TestCase
         ];
 
         $this->slackMessageDto = new SlackMessage(
-            $this->testData['icon'],
             $this->testData['text'],
             $this->testData['quote_type'],
             $this->testData['quote_title'],
@@ -67,22 +65,6 @@ class SlackMessageTest extends TestCase
 
         $this->slackMessageDto->setIconUrl($this->testData['icon_url']);
         $this->slackMessageDto->setIconEmoji($this->testData['icon_emoji']);
-    }
-
-    /** @deprecated */
-    public function testGetIcon()
-    {
-        $this->assertInternalType('string', $this->slackMessageDto->getIcon());
-        $this->assertSame($this->testData['icon_url'], $this->slackMessageDto->getIcon());
-    }
-
-    /** @deprecated */
-    public function testSetIcon()
-    {
-        $this->testData['icon_url'] = $this->randomString();
-        $this->slackMessageDto->setIcon($this->testData['icon_url']);
-        $this->assertInternalType('string', $this->slackMessageDto->getIconUrl());
-        $this->assertSame($this->testData['icon_url'], $this->slackMessageDto->getIconUrl());
     }
 
     public function testGetIconUrl()

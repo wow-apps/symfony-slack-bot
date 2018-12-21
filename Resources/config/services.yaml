@@ -1,17 +1,36 @@
 services:
-    wowapps.slackbot:
-        alias: WowApps\SlackBundle\Service\SlackBot
-        public: true
-
     wowapps.slackbot.validator:
         alias: WowApps\SlackBundle\Service\SlackMessageValidator
+        public: true
+
+    WowApps\SlackBundle\Service\SlackMessageValidator:
+        public: false
+
+    wowapps.slackbot.adapter:
+        alias: WowApps\SlackBundle\Service\SlackAdapter
+        public: true
+
+    WowApps\SlackBundle\Service\SlackAdapter:
+        public: false
+        arguments:
+            - '%wowapps.slackbot.config%'
+            - '@wowapps.slackbot.validator'
+
+#    wowapps.slackbot.provider:
+#        alias: WowApps\SlackBundle\Service\SlackAdapter
+#        public: true
+#
+#    WowApps\SlackBundle\Service\SlackProvider:
+#        public: false
+#        arguments:
+#            - '%wowapps.slackbot.config%'
+
+    wowapps.slackbot:
+        alias: WowApps\SlackBundle\Service\SlackBot
         public: true
 
     WowApps\SlackBundle\Service\SlackBot:
         public: false
         arguments:
             - '%wowapps.slackbot.config%'
-            - '@wowapps.slackbot.validator'
-
-    WowApps\SlackBundle\Service\SlackMessageValidator:
-        public: false
+            - '@wowapps.slackbot.adapter'

@@ -11,7 +11,9 @@
 
 namespace WowApps\SlackBundle\Tests\Service;
 
+use WowApps\SlackBundle\DTO\SlackMessage;
 use WowApps\SlackBundle\Service\SlackBot;
+use WowApps\SlackBundle\Service\SlackEmoji;
 use WowApps\SlackBundle\Service\SlackMessageValidator;
 use WowApps\SlackBundle\Tests\TestCase;
 
@@ -85,5 +87,45 @@ class SlackBotTest extends TestCase
 
         $this->expectException(\InvalidArgumentException::class);
         $this->slackBotService->quoteTypeColor($unExistType);
+    }
+
+    public function testBuildPostBody()
+    {
+        $reflectionClass = new \ReflectionClass(SlackEmoji::class);
+        $emojies = array_values($reflectionClass->getConstants());
+
+        $testData = [
+            'icon_url'         => $this->randomString(),
+            'icon_emoji'       => $emojies[rand(0, (count($emojies) - 1))],
+            'text'             => $this->randomString(),
+            'quote_type'       => rand(0, 1),
+            'quote_title'      => $this->randomString(),
+            'quote_title_link' => $this->randomString(),
+            'quote_text'       => $this->randomString(),
+            'show_quote'       => (bool) rand(0, 1),
+            'recipient'        => $this->randomString(),
+            'sender'           => $this->randomString(),
+        ];
+
+        $slackMessageDto = new SlackMessage(
+            $testData['text'],
+            $testData['quote_type'],
+            $testData['quote_title'],
+            $testData['quote_title_link'],
+            $testData['quote_text'],
+            $testData['show_quote'],
+            $testData['recipient'],
+            $testData['sender']
+        );
+
+        $slackMessageDto->setIconUrl($testData['icon_url']);
+        $slackMessageDto->setIconEmoji($testData['icon_emoji']);
+
+        $postBody = $this->slackBotService->buildPostBody($slackMessageDto);
+        $postBodyArray = @json_decode($postBody, true);
+        $this->assertInternalType('string', $postBody);
+        $this->assertInternalType('array', $postBodyArray);
+        unset($testData['icon_emoji']);
+        //$this->assertSame($testData, $postBodyArray);
     }
 }

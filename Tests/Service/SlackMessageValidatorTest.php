@@ -42,7 +42,6 @@ class SlackMessageValidatorTest extends TestCase
 
         $this->slackMessageDto = new SlackMessage(
             $this->randomString(),
-            $this->randomString(),
             rand(0, 1),
             $this->randomString(),
             $this->randomString(),

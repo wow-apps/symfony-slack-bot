@@ -11,8 +11,6 @@
 
 namespace WowApps\SlackBundle\Service;
 
-use GuzzleHttp\Client as GuzzleClient;
-use Symfony\Component\HttpFoundation\Response;
 use WowApps\SlackBundle\DTO\SlackMessage;
 
 /**
@@ -35,46 +33,29 @@ class SlackBot
         self::QUOTE_INFO     => 'info'
     ];
 
-    const ALLOWED_RESPONSE_STATUSES = [
-        Response::HTTP_OK,
-        Response::HTTP_MOVED_PERMANENTLY,
-        Response::HTTP_FOUND
-    ];
-
     /** @var array */
     private $config;
 
-    /** @var GuzzleClient */
-    private $guzzleClient;
+    /** @var SlackAdapter */
+    private $adapter;
 
-    /** @var SlackMessageValidator */
-    private $validator;
-
-    /**
-     * @param array $config
-     * @param SlackMessageValidator $validator
-     */
-    public function __construct(array $config, SlackMessageValidator $validator)
-    {
-        $this->setConfig($config);
-        $this->guzzleClient = new GuzzleClient();
-        $this->validator = $validator;
-    }
+    /** @var SlackProvider */
+    private $provider;
 
     /**
-     * @return array
+     * SlackBot constructor.
+     *
+     * @param array         $config
+     * @param SlackAdapter  $adapter
+     * @param SlackProvider $provider
      */
-    public function getConfig(): array
-    {
-        return $this->config;
-    }
-
-    /**
-     * @param array $config
-     */
-    public function setConfig(array $config)
+    public function __construct(array $config, SlackAdapter $adapter, SlackProvider $provider)
     {
         $this->config = $config;
+        $this->adapter = $adapter;
+        $this->provider = $provider;
+        $this->adapter->setConfig($this->config);
+        $this->provider->setConfig($this->config);
     }
 
     /**
@@ -94,64 +75,10 @@ class SlackBot
      * @param SlackMessage $slackMessage
      * @return bool
      */
-    public function sendMessage(SlackMessage $slackMessage): bool
+    public function send(SlackMessage $slackMessage): bool
     {
-        return $this->sendRequest($this->buildPostBody($slackMessage));
-    }
-
-    /**
-     * @param SlackMessage $slackMessage
-     * @return string
-     */
-    private function buildPostBody(SlackMessage $slackMessage): string
-    {
-        $return = [];
-
-        $this->validator->validateMessage($slackMessage);
-        $slackMessage = $this->validator->setDefaultsForEmptyFields($slackMessage, $this->getConfig());
-
-        $return['text'] = $slackMessage->getText();
-        $return['channel'] = $slackMessage->getRecipient();
-        $return['mrkdwn'] = true;
-        $return['as_user'] = false;
-
-        if (!empty($slackMessage->getIconUrl())) {
-            $return['icon_url'] = $slackMessage->getIconUrl();
-        }
-
-        if (empty($slackMessage->getIconUrl()) && !empty($slackMessage->getIconEmoji())) {
-            $this->validator->validateIconEmoji($slackMessage);
-            $return['icon_emoji'] = $slackMessage->getIconEmoji();
-        }
-
-        if ($slackMessage->isShowQuote()) {
-            $return['attachments'] = [
-                'fallback' => $slackMessage->getText(),
-                'pretext' => $slackMessage->getText(),
-                'fields' => [
-                    'title' => (!$slackMessage->getQuoteTitle() ? '' : $slackMessage->getQuoteTitle()),
-                    'title_link' => (!$slackMessage->getQuoteTitleLink() ? '' : $slackMessage->getQuoteTitleLink()),
-                    'text' => (!$slackMessage->getQuoteText() ? '' : $slackMessage->getQuoteText()),
-                    'color' => $this->quoteTypeColor($slackMessage->getQuoteType()),
-                    'mrkdwn_in' => ['text', 'pretext']
-                ]
-            ];
-        }
-
-        return json_encode($return, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-    }
-
-    /**
-     * @param string $postBody
-     * @return bool
-     */
-    private function sendRequest(string $postBody): bool
-    {
-        $request = $this->guzzleClient->post($this->config['api_url'], ['body' => $postBody]);
-        if (!in_array($request->getStatusCode(), self::ALLOWED_RESPONSE_STATUSES)) {
-            return false;
-        }
-
-        return true;
+        return $this->provider->sendRequest(
+            $this->adapter->buildRequestBody($slackMessage)
+        );
     }
 }

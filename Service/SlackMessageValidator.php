@@ -43,26 +43,4 @@ class SlackMessageValidator
             throw new SlackbotException(SlackbotException::E_INCORRECT_ICON_EMOJI);
         }
     }
-
-    /**
-     * @param SlackMessage $slackMessage
-     * @param array $config
-     * @return SlackMessage
-     */
-    public function setDefaultsForEmptyFields(SlackMessage $slackMessage, array $config): SlackMessage
-    {
-        if (!$slackMessage->getIcon()) {
-            $slackMessage->setIcon($config['default_icon']);
-        }
-
-        if (!$slackMessage->getRecipient()) {
-            $slackMessage->setRecipient($config['default_channel']);
-        }
-
-        if (!$slackMessage->getSender()) {
-            $slackMessage->setSender('SlackBot');
-        }
-
-        return $slackMessage;
-    }
 }

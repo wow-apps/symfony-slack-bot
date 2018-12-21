@@ -11,6 +11,7 @@
 
 namespace WowApps\SlackBundle\DTO;
 
+use WowApps\SlackBundle\Service\SlackBot;
 use WowApps\SlackBundle\Traits\SlackMessageTrait;
 
 /**
@@ -22,46 +23,37 @@ class SlackMessage
 {
     use SlackMessageTrait;
 
-    /**
-     * This property will be removed in version 3.3
-     *
-     * @deprecated
-     * @var string
-     */
-    private $icon;
+    /** @var string */
+    private $iconUrl = '';
 
     /** @var string */
-    private $iconUrl;
+    private $iconEmoji = '';
 
     /** @var string */
-    private $iconEmoji;
-
-    /** @var string */
-    private $text;
+    private $text = '';
 
     /** @var int */
-    private $quoteType;
+    private $quoteType = 0;
 
     /** @var string */
-    private $quoteTitle;
+    private $quoteTitle = '';
 
     /** @var string */
-    private $quoteTitleLink;
+    private $quoteTitleLink = '';
 
     /** @var string */
-    private $quoteText;
+    private $quoteText = '';
 
     /** @var bool */
-    private $showQuote;
+    private $showQuote = false;
 
     /** @var string */
-    private $recipient;
+    private $recipient = '';
 
     /** @var string */
-    private $sender;
+    private $sender = '';
 
     /**
-     * @param string $icon
      * @param string $text
      * @param int $quoteType
      * @param string $quoteTitle
@@ -72,9 +64,8 @@ class SlackMessage
      * @param string $sender
      */
     public function __construct(
-        string  $icon = '',
         string  $text = '',
-        int     $quoteType = 0,
+        int     $quoteType = SlackBot::QUOTE_DEFAULT,
         string  $quoteTitle = '',
         string  $quoteTitleLink = '',
         string  $quoteText = '',
@@ -83,7 +74,6 @@ class SlackMessage
         string  $sender = ''
     ) {
         $this
-            ->setIcon($icon)
             ->setText($text)
             ->setQuoteType($quoteType)
             ->setQuoteTitle($quoteTitle)
@@ -93,45 +83,6 @@ class SlackMessage
             ->setRecipient($recipient)
             ->setSender($sender)
         ;
-    }
-
-    /**
-     * This method will be removed in version 3.3
-     *
-     * @deprecated
-     * @return string
-     */
-    public function getIcon(): string
-    {
-        // TODO: this dirty hack will be removed in version 3.3
-        if (!empty($this->getIconUrl())) {
-            return $this->getIconUrl();
-        }
-
-        if (!empty($this->getIconEmoji())) {
-            return $this->getIconEmoji();
-        }
-
-        return '';
-    }
-
-    /**
-     * This method will be removed in version 3.3
-     *
-     * @deprecated
-     * @param string $icon
-     * @return SlackMessage
-     */
-    public function setIcon(string $icon): SlackMessage
-    {
-        // TODO: this dirty hack will be removed in version 3.3
-        if (preg_match('/^\:(.*?)\:$/i', $icon)) {
-            $this->setIconEmoji($icon);
-            return $this;
-        }
-
-        $this->setIconUrl($icon);
-        return $this;
     }
 
     /**
