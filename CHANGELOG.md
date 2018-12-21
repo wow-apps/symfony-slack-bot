@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.2.13] - 2018-12-21
+### Changed
+- Fixed characters replacement for links in trait ([Issue #11](https://github.com/wow-apps/symfony-slack-bot/issues/11))
+
 ## [3.2.12] - 2018-10-09
 ### Changed
 - Fixed setting of message icon ([Issue #9](https://github.com/wow-apps/symfony-slack-bot/issues/9))

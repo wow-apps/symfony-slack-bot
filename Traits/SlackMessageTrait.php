@@ -137,14 +137,11 @@ trait SlackMessageTrait
     /**
      * @param string $string
      * @return string
+     * @deprecated
      * @see https://github.com/wow-apps/symfony-slack-bot/wiki/3.-Additional-helpers#escape-special-characters
      */
     public function escapeCharacters(string $string): string
     {
-        $string = str_replace('&', '&amp;', $string);
-        $string = str_replace('<', '&lt;', $string);
-        $string = str_replace('>', '&gt;', $string);
-
-        return $string;
+        return str_replace('&', '&amp;', $string);
     }
 }

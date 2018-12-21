@@ -148,8 +148,6 @@ class SlackMessageTraitTest extends TestCase
     {
         $expect = $testString = $this->randomString() . '<&>';
         $expect = str_replace('&', '&amp;', $expect);
-        $expect = str_replace('<', '&lt;', $expect);
-        $expect = str_replace('>', '&gt;', $expect);
         $actual = $this->escapeCharacters($testString);
 
         $this->assertEquals($expect, $actual);
