@@ -112,6 +112,7 @@ class SlackBot
 
         $return['text'] = $slackMessage->getText();
         $return['channel'] = $slackMessage->getRecipient();
+        $return['username'] = $slackMessage->getSender();
         $return['mrkdwn'] = true;
         $return['as_user'] = false;
 
