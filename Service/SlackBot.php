@@ -105,16 +105,16 @@ class SlackBot
      */
     private function buildPostBody(SlackMessage $slackMessage): string
     {
-        $return = [];
-
         $this->validator->validateMessage($slackMessage);
         $slackMessage = $this->validator->setDefaultsForEmptyFields($slackMessage, $this->getConfig());
 
-        $return['text'] = $slackMessage->getText();
-        $return['channel'] = $slackMessage->getRecipient();
-        $return['username'] = $slackMessage->getSender();
-        $return['mrkdwn'] = true;
-        $return['as_user'] = false;
+        $return = [
+            'text' => $slackMessage->getText(),
+            'channel' => $slackMessage->getRecipient(),
+            'username' => $slackMessage->getSender(),
+            'mrkdwn' => true,
+            'as_user' => false
+        ];
 
         if (!empty($slackMessage->getIconUrl())) {
             $return['icon_url'] = $slackMessage->getIconUrl();
