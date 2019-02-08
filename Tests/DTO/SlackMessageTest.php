@@ -1,210 +1,188 @@
 <?php
-/**
- * This file is part of the WoW-Apps/Symfony-Slack-Bot bundle for Symfony 3
+
+/*
+ * This file is part of the WoW-Apps/Symfony-Slack-Bot bundle for Symfony.
  * https://github.com/wow-apps/symfony-slack-bot
- *
- * (c) 2018 WoW-Apps
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ * https://github.com/wow-apps/symfony-slack-bot/blob/master/LICENSE
+ *
+ * For technical documentation.
+ * https://wow-apps.github.io/symfony-slack-bot/docs/
+ *
+ * Author Alexey Samara <lion.samara@gmail.com>
+ *
+ * Copyright 2016 WoW-Apps.
  */
 
 namespace WowApps\SlackBundle\Tests\DTO;
 
+use WowApps\SlackBundle\DTO\Attachment;
 use WowApps\SlackBundle\DTO\SlackMessage;
-use WowApps\SlackBundle\Service\SlackEmoji;
 use WowApps\SlackBundle\Tests\TestCase;
 
 /**
- * Class SlackMessageTest
+ * Class SlackMessageTest.
  *
  * @author Alexey Samara <lion.samara@gmail.com>
- * @package WowApps\SlackBundle
  */
 class SlackMessageTest extends TestCase
 {
-    /** @var array */
-    private $testData = [];
-
-    /** @var SlackMessage */
-    private $slackMessageDto;
-
-    /** @var array */
-    private $emojies = [];
-
-    public function setUp()
+    /**
+     * @throws \ReflectionException
+     */
+    public function testGettersAndSettersExists()
     {
-        parent::setUp();
+        $classReflection = new \ReflectionClass(SlackMessage::class);
+        $classProperties = $classReflection->getProperties(\ReflectionProperty::IS_PRIVATE);
+        $classMethods = $classReflection->getMethods(\ReflectionMethod::IS_PUBLIC);
+        $classMethodsName = [];
 
-        $reflectionClass = new \ReflectionClass(SlackEmoji::class);
-        $this->emojies = array_values($reflectionClass->getConstants());
+        foreach ($classMethods as $classMethod) {
+            if (preg_match('/^\_\_/i', $classMethod->getName())) {
+                continue;
+            }
 
-        $this->testData = [
-            'icon_url'         => $this->randomString(),
-            'icon_emoji'       => $this->emojies[rand(0, (count($this->emojies) - 1))],
-            'text'             => $this->randomString(),
-            'quote_type'       => rand(0, 1),
-            'quote_title'      => $this->randomString(),
-            'quote_title_link' => $this->randomString(),
-            'quote_text'       => $this->randomString(),
-            'show_quote'       => (bool) rand(0, 1),
-            'recipient'        => $this->randomString(),
-            'sender'           => $this->randomString(),
-        ];
+            $classMethodsName[] = $classMethod->getName();
+        }
 
-        $this->slackMessageDto = new SlackMessage(
-            $this->testData['text'],
-            $this->testData['quote_type'],
-            $this->testData['quote_title'],
-            $this->testData['quote_title_link'],
-            $this->testData['quote_text'],
-            $this->testData['show_quote'],
-            $this->testData['recipient'],
-            $this->testData['sender']
-        );
+        foreach ($classProperties as $classProperty) {
+            $getterMethod = 'get' . ucfirst($classProperty->getName());
+            $setterMethod = 'set' . ucfirst($classProperty->getName());
 
-        $this->slackMessageDto->setIconUrl($this->testData['icon_url']);
-        $this->slackMessageDto->setIconEmoji($this->testData['icon_emoji']);
+            if (preg_match('/\@var bool/im', $classProperty->getDocComment())) {
+                $getterMethod = 'is' . ucfirst($classProperty->getName());
+            }
+
+            $this->assertTrue(in_array($getterMethod, $classMethodsName));
+            $this->assertTrue(in_array($setterMethod, $classMethodsName));
+        }
+    }
+
+    public function testGetUsername()
+    {
+        $this->assertTrue(is_string($this->slackMessageMock->getUsername()));
+        $this->assertSame($this->testData['user_name'], $this->slackMessageMock->getUsername());
+    }
+
+    public function testSetUsername()
+    {
+        $newData = $this->randomString();
+        $this->slackMessageMock->setUsername($newData);
+        $this->assertTrue(is_string($this->slackMessageMock->getUsername()));
+        $this->assertSame($newData, $this->slackMessageMock->getUsername());
+
+        $this->rollBackSlackMessage();
+    }
+
+    public function testGetChannel()
+    {
+        $this->assertTrue(is_string($this->slackMessageMock->getChannel()));
+        $this->assertSame($this->testData['channel'], $this->slackMessageMock->getChannel());
+    }
+
+    public function testSetChannel()
+    {
+        $newData = $this->randomString();
+        $this->slackMessageMock->setChannel($newData);
+        $this->assertTrue(is_string($this->slackMessageMock->getChannel()));
+        $this->assertSame($newData, $this->slackMessageMock->getChannel());
+
+        $this->rollBackSlackMessage();
     }
 
     public function testGetIconUrl()
     {
-        $this->assertInternalType('string', $this->slackMessageDto->getIconUrl());
-        $this->assertSame($this->testData['icon_url'], $this->slackMessageDto->getIconUrl());
+        $this->assertTrue(is_string($this->slackMessageMock->getIconUrl()));
+        $this->assertSame($this->testData['icon_url'], $this->slackMessageMock->getIconUrl());
     }
 
     public function testSetIconUrl()
     {
-        $this->testData['icon_url'] = $this->randomString();
-        $this->slackMessageDto->setIconUrl($this->testData['icon_url']);
-        $this->assertInternalType('string', $this->slackMessageDto->getIconUrl());
-        $this->assertSame($this->testData['icon_url'], $this->slackMessageDto->getIconUrl());
+        $newData = $this->randomString();
+        $this->slackMessageMock->setIconUrl($newData);
+        $this->assertTrue(is_string($this->slackMessageMock->getIconUrl()));
+        $this->assertSame($newData, $this->slackMessageMock->getIconUrl());
+
+        $this->rollBackSlackMessage();
     }
 
     public function testGetIconEmoji()
     {
-        $this->assertInternalType('string', $this->slackMessageDto->getIconEmoji());
-        $this->assertSame($this->testData['icon_emoji'], $this->slackMessageDto->getIconEmoji());
+        $this->assertTrue(is_string($this->slackMessageMock->getIconEmoji()));
+        $this->assertSame($this->testData['icon_emoji'], $this->slackMessageMock->getIconEmoji());
     }
 
     public function testSetIconEmoji()
     {
-        $this->testData['icon_emoji'] = $this->emojies[rand(0, (count($this->emojies) - 1))];
-        $this->slackMessageDto->setIconEmoji($this->testData['icon_emoji']);
-        $this->assertInternalType('string', $this->slackMessageDto->getIconEmoji());
-        $this->assertTrue((bool) preg_match('/^\:(.*?)\:$/i', $this->slackMessageDto->getIconEmoji()));
-        $this->assertSame($this->testData['icon_emoji'], $this->slackMessageDto->getIconEmoji());
+        $newData = $this->randomString();
+        $this->slackMessageMock->setIconEmoji($newData);
+        $this->assertTrue(is_string($this->slackMessageMock->getIconEmoji()));
+        $this->assertSame($newData, $this->slackMessageMock->getIconEmoji());
+
+        $this->rollBackSlackMessage();
+    }
+
+    public function testIsMarkdown()
+    {
+        $this->assertTrue(is_bool($this->slackMessageMock->isMarkdown()));
+        $this->assertSame($this->testData['markdown'], $this->slackMessageMock->isMarkdown());
+    }
+
+    public function testSetMarkdown()
+    {
+        $newData = $this->randomBoolean();
+        $this->slackMessageMock->setMarkdown($newData);
+        $this->assertTrue(is_bool($this->slackMessageMock->isMarkdown()));
+        $this->assertSame($newData, $this->slackMessageMock->isMarkdown());
+
+        $this->rollBackSlackMessage();
     }
 
     public function testGetText()
     {
-        $this->assertInternalType('string', $this->slackMessageDto->getText());
-        $this->assertSame($this->testData['text'], $this->slackMessageDto->getText());
+        $this->assertTrue(is_string($this->slackMessageMock->getText()));
+        $this->assertSame($this->testData['text'], $this->slackMessageMock->getText());
     }
 
     public function testSetText()
     {
-        $this->testData['text'] = $this->randomString();
-        $this->slackMessageDto->setText($this->testData['text']);
-        $this->assertInternalType('string', $this->slackMessageDto->getText());
-        $this->assertSame($this->testData['text'], $this->slackMessageDto->getText());
+        $newData = $this->randomString();
+        $this->slackMessageMock->setText($newData);
+        $this->assertTrue(is_string($this->slackMessageMock->getText()));
+        $this->assertSame($newData, $this->slackMessageMock->getText());
+
+        $this->rollBackSlackMessage();
     }
 
-    public function testGetQuoteType()
+    public function testGetAttachments()
     {
-        $this->assertInternalType('int', $this->slackMessageDto->getQuoteType());
-        $this->assertSame($this->testData['quote_type'], $this->slackMessageDto->getQuoteType());
+        $this->assertTrue(is_array($this->slackMessageMock->getAttachments()));
+        $this->assertTrue(1 === count($this->slackMessageMock->getAttachments()));
     }
 
-    public function testSetQuoteType()
+    public function testSetAttachments()
     {
-        $this->testData['quote_type'] = rand(1, 999);
-        $this->slackMessageDto->setQuoteType($this->testData['quote_type']);
-        $this->assertInternalType('int', $this->slackMessageDto->getQuoteType());
-        $this->assertSame($this->testData['quote_type'], $this->slackMessageDto->getQuoteType());
+        $newData = [new Attachment()];
+        $this->slackMessageMock->setAttachments($newData);
+        $this->assertTrue(is_array($this->slackMessageMock->getAttachments()));
+        $this->assertTrue(1 === count($this->slackMessageMock->getAttachments()));
+        $this->assertSame($newData, $this->slackMessageMock->getAttachments());
+
+        $this->rollBackSlackMessage();
     }
 
-    public function testGetQuoteTitle()
+    public function testAppendAttachments()
     {
-        $this->assertInternalType('string', $this->slackMessageDto->getQuoteTitle());
-        $this->assertSame($this->testData['quote_title'], $this->slackMessageDto->getQuoteTitle());
-    }
+        $newData = $this->slackMessageMock->getAttachments();
+        $attachment = new Attachment();
+        $newData[] = $attachment;
+        $this->slackMessageMock->appendAttachment($attachment);
+        $this->assertTrue(is_array($this->slackMessageMock->getAttachments()));
+        $this->assertTrue(count($this->slackMessageMock->getAttachments()) === count($newData));
+        $this->assertSame($newData, $this->slackMessageMock->getAttachments());
 
-    public function testSetQuoteTitle()
-    {
-        $this->testData['quote_title'] = $this->randomString();
-        $this->slackMessageDto->setQuoteTitle($this->testData['quote_title']);
-        $this->assertInternalType('string', $this->slackMessageDto->getQuoteTitle());
-        $this->assertSame($this->testData['quote_title'], $this->slackMessageDto->getQuoteTitle());
-    }
-
-    public function testGetQuoteTitleLink()
-    {
-        $this->assertInternalType('string', $this->slackMessageDto->getQuoteTitleLink());
-        $this->assertSame($this->testData['quote_title_link'], $this->slackMessageDto->getQuoteTitleLink());
-    }
-
-    public function testSetQuoteTitleLink()
-    {
-        $this->testData['quote_title_link'] = $this->randomString();
-        $this->slackMessageDto->setQuoteTitleLink($this->testData['quote_title_link']);
-        $this->assertInternalType('string', $this->slackMessageDto->getQuoteTitleLink());
-        $this->assertSame($this->testData['quote_title_link'], $this->slackMessageDto->getQuoteTitleLink());
-    }
-
-    public function testGetQuoteText()
-    {
-        $this->assertInternalType('string', $this->slackMessageDto->getQuoteText());
-        $this->assertSame($this->testData['quote_text'], $this->slackMessageDto->getQuoteText());
-    }
-
-    public function testSetQuoteText()
-    {
-        $this->testData['quote_text'] = $this->randomString();
-        $this->slackMessageDto->setQuoteText($this->testData['quote_text']);
-        $this->assertInternalType('string', $this->slackMessageDto->getQuoteText());
-        $this->assertSame($this->testData['quote_text'], $this->slackMessageDto->getQuoteText());
-    }
-
-    public function testIsShowQuote()
-    {
-        $this->assertInternalType('bool', $this->slackMessageDto->isShowQuote());
-        $this->assertSame($this->testData['show_quote'], $this->slackMessageDto->isShowQuote());
-    }
-
-    public function testSetShowQuote()
-    {
-        $this->testData['show_quote'] = (bool) rand(0, 1);
-        $this->slackMessageDto->setShowQuote($this->testData['show_quote']);
-        $this->assertInternalType('bool', $this->slackMessageDto->isShowQuote());
-        $this->assertSame($this->testData['show_quote'], $this->slackMessageDto->isShowQuote());
-    }
-
-    public function testGetRecipient()
-    {
-        $this->assertInternalType('string', $this->slackMessageDto->getRecipient());
-        $this->assertSame($this->testData['recipient'], $this->slackMessageDto->getRecipient());
-    }
-
-    public function testSetRecipient()
-    {
-        $this->testData['recipient'] = $this->randomString();
-        $this->slackMessageDto->setRecipient($this->testData['recipient']);
-        $this->assertInternalType('string', $this->slackMessageDto->getRecipient());
-        $this->assertSame($this->testData['recipient'], $this->slackMessageDto->getRecipient());
-    }
-
-    public function testGetSender()
-    {
-        $this->assertInternalType('string', $this->slackMessageDto->getSender());
-        $this->assertSame($this->testData['sender'], $this->slackMessageDto->getSender());
-    }
-
-    public function testSetSender()
-    {
-        $this->testData['sender'] = $this->randomString();
-        $this->slackMessageDto->setSender($this->testData['sender']);
-        $this->assertInternalType('string', $this->slackMessageDto->getSender());
-        $this->assertSame($this->testData['sender'], $this->slackMessageDto->getSender());
+        $this->rollBackSlackMessage();
     }
 }

@@ -16,14 +16,19 @@
  * Copyright 2016 WoW-Apps.
  */
 
-namespace WowApps\SlackBundle;
+namespace WowApps\SlackBundle\Tests\Exception;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use WowApps\SlackBundle\Exception\SlackbotException;
+use WowApps\SlackBundle\Tests\TestCase;
 
-/**
- * @author Alexey Samara <lion.samara@gmail.com>
- */
-class WowAppsSlackBundle extends Bundle
+class SlackbotExceptionTest extends TestCase
 {
-    const CURRENT_VERSION = '4.0.0';
+    public function testExceptionMessage()
+    {
+        try {
+            throw new SlackbotException(SlackbotException::E_UNKNOWN);
+        } catch (SlackbotException $exception) {
+            $this->assertContains('Unknown error', $exception->getMessage());
+        }
+    }
 }

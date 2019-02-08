@@ -1,5 +1,6 @@
 {
     "name": "wow-apps/symfony-slack-bot",
+    "license": "MIT",
     "description": "Simple Symfony 3 and 4 Bundle for sending customizeable messages to Slack via incoming webhooks",
     "type": "symfony-bundle",
     "keywords": [
@@ -7,12 +8,10 @@
         "slack bot",
         "slackbot",
         "symfony",
-        "symfony 3"
+        "symfony 3",
+        "symfony 4"
     ],
     "homepage": "https://wow-apps.github.io/symfony-slack-bot/",
-    "license": [
-        "MIT"
-    ],
     "authors": [
         {
             "name": "Alexey Samara",
@@ -29,17 +28,23 @@
     "require": {
         "php": "^7.0",
         "ext-json": "*",
+        "psr/log": "^1.1",
         "symfony/framework-bundle": "^3.0 || ^4.0",
         "symfony/http-foundation": "^3.0 || ^4.0",
         "symfony/yaml": "^3.0 || ^4.0",
         "guzzlehttp/guzzle": "^6.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.3"
+        "phpunit/phpunit": "^7.5",
+        "matthiasnoback/symfony-config-test": "^4.0",
+        "matthiasnoback/symfony-dependency-injection-test": "^3.1",
+        "nyholm/symfony-bundle-test": "^1.4",
+        "friendsofphp/php-cs-fixer": "2.14.*"
     },
     "autoload": {
         "psr-4": {
-            "WowApps\\SlackBundle\\": ""
+            "WowApps\\SlackBundle\\": "",
+            "WowApps\\SlackBundle\\Tests\\": "tests/"
         },
         "exclude-from-classmap": [
             "/Tests/"

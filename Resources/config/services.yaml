@@ -1,36 +1,43 @@
 services:
-    wowapps.slackbot.validator:
-        alias: WowApps\SlackBundle\Service\SlackMessageValidator
-        public: true
-
-    WowApps\SlackBundle\Service\SlackMessageValidator:
+    WowApps\SlackBundle\Service\SlackMessageBuilder:
         public: false
-
-    wowapps.slackbot.adapter:
-        alias: WowApps\SlackBundle\Service\SlackAdapter
-        public: true
-
-    WowApps\SlackBundle\Service\SlackAdapter:
-        public: false
+        autowire: false
         arguments:
             - '%wowapps.slackbot.config%'
-            - '@wowapps.slackbot.validator'
+            - '@WowApps\SlackBundle\Service\SlackColor'
 
-#    wowapps.slackbot.provider:
-#        alias: WowApps\SlackBundle\Service\SlackAdapter
-#        public: true
-#
-#    WowApps\SlackBundle\Service\SlackProvider:
-#        public: false
-#        arguments:
-#            - '%wowapps.slackbot.config%'
+    WowApps\SlackBundle\Service\SlackProvider:
+        public: false
+        autowire: false
+        arguments:
+            - '%wowapps.slackbot.config%'
+
+    WowApps\SlackBundle\Service\SlackColor:
+        public: false
+        autowire: false
+        arguments:
+            - '%wowapps.slackbot.config%'
+
+    WowApps\SlackBundle\Command\WowappsSlackbotTestCommand:
+        public: false
+        autowire: false
+        tags: ['console.command']
+
+    WowApps\SlackBundle\Service\SlackTemplatingManager:
+        public: false
+        autowire: false
+        arguments:
+            - '%wowapps.slackbot.config%'
+
+    WowApps\SlackBundle\Service\SlackBot:
+        public: false
+        autowire: true
+        arguments:
+            - '%wowapps.slackbot.config%'
+            - '@WowApps\SlackBundle\Service\SlackMessageBuilder'
+            - '@WowApps\SlackBundle\Service\SlackProvider'
+            - '@WowApps\SlackBundle\Service\SlackTemplatingManager'
 
     wowapps.slackbot:
         alias: WowApps\SlackBundle\Service\SlackBot
         public: true
-
-    WowApps\SlackBundle\Service\SlackBot:
-        public: false
-        arguments:
-            - '%wowapps.slackbot.config%'
-            - '@wowapps.slackbot.adapter'

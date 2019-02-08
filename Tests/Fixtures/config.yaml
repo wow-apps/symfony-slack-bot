@@ -1,0 +1,18 @@
+# SlackBot Test Configuration
+wow_apps_slack:
+    api_url: 'test.url'
+    default_channel: 'test.channel'
+    default_username: 'test.username'
+    default_icon_url: 'test.icon'
+    default_fallback: 'test.fallback'
+    colors:
+        default: 'test.color.default'
+        info: 'test.color.info'
+        warning: 'test.color.warning'
+        success: 'test.color.success'
+        danger: 'test.color.danger'
+    templates:
+        exception:
+            username: 'test.templates.exception.username'
+            channel: 'test.templates.exception.channel'
+            icon: 'test.templates.exception.icon'

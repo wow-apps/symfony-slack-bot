@@ -1,88 +1,116 @@
 <?php
-/**
- * This file is part of the WoW-Apps/Symfony-Slack-Bot bundle for Symfony 3
+
+/*
+ * This file is part of the WoW-Apps/Symfony-Slack-Bot bundle for Symfony.
  * https://github.com/wow-apps/symfony-slack-bot
- *
- * (c) 2016 WoW-Apps
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ * https://github.com/wow-apps/symfony-slack-bot/blob/master/LICENSE
+ *
+ * For technical documentation.
+ * https://wow-apps.github.io/symfony-slack-bot/docs/
+ *
+ * Author Alexey Samara <lion.samara@gmail.com>
+ *
+ * Copyright 2016 WoW-Apps.
  */
 
 namespace WowApps\SlackBundle\DTO;
 
-use WowApps\SlackBundle\Service\SlackBot;
-use WowApps\SlackBundle\Traits\SlackMessageTrait;
-
 /**
  * @author Alexey Samara <lion.samara@gmail.com>
- * @package WowApps\SlackBundle
- * @see https://github.com/wow-apps/symfony-slack-bot/wiki/2.-Using-SlackBot#fill-dto
  */
 class SlackMessage
 {
-    use SlackMessageTrait;
+    /** @var string */
+    private $username;
 
     /** @var string */
-    private $iconUrl = '';
+    private $channel;
 
     /** @var string */
-    private $iconEmoji = '';
+    private $iconUrl;
 
     /** @var string */
-    private $text = '';
-
-    /** @var int */
-    private $quoteType = 0;
-
-    /** @var string */
-    private $quoteTitle = '';
-
-    /** @var string */
-    private $quoteTitleLink = '';
-
-    /** @var string */
-    private $quoteText = '';
+    private $iconEmoji;
 
     /** @var bool */
-    private $showQuote = false;
+    private $markdown;
 
     /** @var string */
-    private $recipient = '';
+    private $text;
 
-    /** @var string */
-    private $sender = '';
+    /** @var Attachment[] */
+    private $attachments;
 
     /**
+     * SlackMessage constructor.
+     *
      * @param string $text
-     * @param int $quoteType
-     * @param string $quoteTitle
-     * @param string $quoteTitleLink
-     * @param string $quoteText
-     * @param bool $showQuote
-     * @param string $recipient
-     * @param string $sender
+     * @param string $username
+     * @param string $channel
+     * @param string $iconUrl
+     * @param string $iconEmoji
+     * @param bool   $markdown
+     * @param array  $attachments
      */
     public function __construct(
-        string  $text = '',
-        int     $quoteType = SlackBot::QUOTE_DEFAULT,
-        string  $quoteTitle = '',
-        string  $quoteTitleLink = '',
-        string  $quoteText = '',
-        bool    $showQuote = false,
-        string  $recipient = '',
-        string  $sender = ''
+        string $text = '',
+        string $username = '',
+        string $channel = '',
+        string $iconUrl = '',
+        string $iconEmoji = '',
+        bool   $markdown = true,
+        array  $attachments = []
     ) {
-        $this
-            ->setText($text)
-            ->setQuoteType($quoteType)
-            ->setQuoteTitle($quoteTitle)
-            ->setQuoteTitleLink($quoteTitleLink)
-            ->setQuoteText($quoteText)
-            ->setShowQuote($showQuote)
-            ->setRecipient($recipient)
-            ->setSender($sender)
-        ;
+        $this->text = $text;
+        $this->username = $username;
+        $this->channel = $channel;
+        $this->iconUrl = $iconUrl;
+        $this->iconEmoji = $iconEmoji;
+        $this->markdown = $markdown;
+        $this->attachments = $attachments;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     *
+     * @return SlackMessage
+     */
+    public function setUsername(string $username): SlackMessage
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getChannel(): string
+    {
+        return $this->channel;
+    }
+
+    /**
+     * @param string $channel
+     *
+     * @return SlackMessage
+     */
+    public function setChannel(string $channel): SlackMessage
+    {
+        $this->channel = $channel;
+
+        return $this;
     }
 
     /**
@@ -95,11 +123,13 @@ class SlackMessage
 
     /**
      * @param string $iconUrl
+     *
      * @return SlackMessage
      */
     public function setIconUrl(string $iconUrl): SlackMessage
     {
         $this->iconUrl = $iconUrl;
+
         return $this;
     }
 
@@ -113,11 +143,33 @@ class SlackMessage
 
     /**
      * @param string $iconEmoji
+     *
      * @return SlackMessage
      */
     public function setIconEmoji(string $iconEmoji): SlackMessage
     {
         $this->iconEmoji = $iconEmoji;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isMarkdown(): bool
+    {
+        return $this->markdown;
+    }
+
+    /**
+     * @param bool $markdown
+     *
+     * @return SlackMessage
+     */
+    public function setMarkdown(bool $markdown): SlackMessage
+    {
+        $this->markdown = $markdown;
+
         return $this;
     }
 
@@ -131,137 +183,49 @@ class SlackMessage
 
     /**
      * @param string $text
+     *
      * @return SlackMessage
      */
     public function setText(string $text): SlackMessage
     {
-        $this->text = $this->escapeCharacters($text);
+        $this->text = $text;
+
         return $this;
     }
 
     /**
-     * @return int
+     * @return Attachment[]
      */
-    public function getQuoteType(): int
+    public function getAttachments(): array
     {
-        return $this->quoteType;
+        return $this->attachments;
     }
 
     /**
-     * @param int $quoteType
+     * @param Attachment[] $attachments
+     *
      * @return SlackMessage
      */
-    public function setQuoteType(int $quoteType): SlackMessage
+    public function setAttachments(array $attachments): SlackMessage
     {
-        $this->quoteType = $quoteType;
+        $this->attachments = $attachments;
+
         return $this;
     }
 
     /**
-     * @return string
-     */
-    public function getQuoteTitle(): string
-    {
-        return $this->quoteTitle;
-    }
-
-    /**
-     * @param string $quoteTitle
+     * @param Attachment $attachment
+     *
      * @return SlackMessage
      */
-    public function setQuoteTitle(string $quoteTitle): SlackMessage
+    public function appendAttachment(Attachment $attachment): SlackMessage
     {
-        $this->quoteTitle = $this->escapeCharacters($quoteTitle);
-        return $this;
-    }
+        if (empty($this->attachments)) {
+            $this->attachments = [];
+        }
 
-    /**
-     * @return string
-     */
-    public function getQuoteTitleLink(): string
-    {
-        return $this->quoteTitleLink;
-    }
+        $this->attachments[] = $attachment;
 
-    /**
-     * @param string $quoteTitleLink
-     * @return SlackMessage
-     */
-    public function setQuoteTitleLink(string $quoteTitleLink): SlackMessage
-    {
-        $this->quoteTitleLink = $this->escapeCharacters($quoteTitleLink);
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getQuoteText(): string
-    {
-        return $this->quoteText;
-    }
-
-    /**
-     * @param string $quoteText
-     * @return SlackMessage
-     */
-    public function setQuoteText(string $quoteText): SlackMessage
-    {
-        $this->quoteText = $this->escapeCharacters($quoteText);
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isShowQuote(): bool
-    {
-        return $this->showQuote;
-    }
-
-    /**
-     * @param bool $showQuote
-     * @return SlackMessage
-     */
-    public function setShowQuote(bool $showQuote): SlackMessage
-    {
-        $this->showQuote = $showQuote;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRecipient(): string
-    {
-        return $this->recipient;
-    }
-
-    /**
-     * @param string $recipient
-     * @return SlackMessage
-     */
-    public function setRecipient(string $recipient): SlackMessage
-    {
-        $this->recipient = $this->escapeCharacters($recipient);
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSender(): string
-    {
-        return $this->sender;
-    }
-
-    /**
-     * @param string $sender
-     * @return SlackMessage
-     */
-    public function setSender(string $sender): SlackMessage
-    {
-        $this->sender = $this->escapeCharacters($sender);
         return $this;
     }
 }

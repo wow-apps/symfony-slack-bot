@@ -16,14 +16,19 @@
  * Copyright 2016 WoW-Apps.
  */
 
-namespace WowApps\SlackBundle;
+namespace WowApps\SlackBundle\Templating;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use WowApps\SlackBundle\DTO\SlackMessage;
 
-/**
- * @author Alexey Samara <lion.samara@gmail.com>
- */
-class WowAppsSlackBundle extends Bundle
+interface SlackTemplateInterface
 {
-    const CURRENT_VERSION = '4.0.0';
+    /**
+     * @return string
+     */
+    public function getConfigIndex(): string;
+
+    /**
+     * @return SlackMessage
+     */
+    public function getMessage(): SlackMessage;
 }
