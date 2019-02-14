@@ -126,16 +126,12 @@ class SlackBot
         }
 
         if ($slackMessage->isShowQuote()) {
-            $return['attachments'] = [
-                'fallback' => $slackMessage->getText(),
-                'pretext' => $slackMessage->getText(),
-                'fields' => [
-                    'title' => (!$slackMessage->getQuoteTitle() ? '' : $slackMessage->getQuoteTitle()),
-                    'title_link' => (!$slackMessage->getQuoteTitleLink() ? '' : $slackMessage->getQuoteTitleLink()),
-                    'text' => (!$slackMessage->getQuoteText() ? '' : $slackMessage->getQuoteText()),
-                    'color' => $this->quoteTypeColor($slackMessage->getQuoteType()),
-                    'mrkdwn_in' => ['text', 'pretext']
-                ]
+            $return['attachments'][] = [
+                'title' => (!$slackMessage->getQuoteTitle() ? '' : $slackMessage->getQuoteTitle()),
+                'title_link' => (!$slackMessage->getQuoteTitleLink() ? '' : $slackMessage->getQuoteTitleLink()),
+                'text' => (!$slackMessage->getQuoteText() ? '' : $slackMessage->getQuoteText()),
+                'color' => $this->quoteTypeColor($slackMessage->getQuoteType()),
+                'mrkdwn_in' => ['text', 'pretext'],
             ];
         }
 
