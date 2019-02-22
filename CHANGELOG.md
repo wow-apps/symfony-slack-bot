@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.2.15] - 2019-02-22
+### Changed
+- Implemented new Slack API JSON format ([Issue #14](https://github.com/wow-apps/symfony-slack-bot/issues/14))
+
 ## [3.2.14] - 2019-02-04
 ### Changed
 - Fixed problem with setting Message sender ([Issue #13](https://github.com/wow-apps/symfony-slack-bot/issues/13))
