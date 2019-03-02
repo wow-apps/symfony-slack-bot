@@ -36,6 +36,7 @@
     <meta property="og:image" content="https://wow-apps.github.io/symfony-slack-bot/assets/images/symfony_slack_bot_4_social_banner.jpg" />
     <meta property="og:image:alt" content="Symfony Slack Bot - Modern and simple bundle for sending customizable messages to Slack via incoming web-hooks for Symfony 3 and 4" />
     <link rel="stylesheet" href="//unpkg.com/docsify/themes/vue.css">
+
     <style>
         a:active, a:hover, a:link, a, button{outline: none!important}
     </style>
@@ -55,7 +56,8 @@
             notFoundPage: '404.md',
             subMaxLevel: 3,
             maxLevel: 4,
-            themeColor: '#518ab5',
+            themeColor: '#441B49',
+            ga: 'UA-45770815-3',
             search: {
                 paths: 'auto',
                 placeholder: 'Search ...',
@@ -71,6 +73,21 @@
                 theme      : 'material',
                 tabComments: true,
                 tabHeadings: true
+            },
+            'flexible-alerts': {
+                style: 'callout',
+                note: {
+                    label: "Note"
+                },
+                tip: {
+                    label: "Tip"
+                },
+                warning: {
+                    label: "Warning"
+                },
+                danger: {
+                    label: "Alert"
+                }
             }
         }
     </script>
@@ -82,9 +99,11 @@
     <script src="//unpkg.com/docsify-copy-code"></script>
     <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
     <script src="//unpkg.com/docsify-tabs@1"></script>
+    <script src="//unpkg.com/docsify-plugin-flexible-alerts"></script>
     <script src="//unpkg.com/prismjs/components/prism-php.min.js"></script>
     <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
     <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
     <script src="//unpkg.com/prismjs/components/prism-yaml.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/ga.min.js"></script>
 </body>
 </html>

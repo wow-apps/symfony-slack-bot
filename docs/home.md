@@ -15,7 +15,7 @@
 
 # Symfony Slack Bot
 
-Simple Symfony 3 and 4 Bundle for sending customizable messages to Slack via [incoming webhooks](https://api.slack.com/incoming-webhooks).
+Modern and simple bundle for sending customizable messages to Slack via [incoming web-hooks](https://api.slack.com/incoming-webhooks) for Symfony 3 and 4
 
 
 # News and updates
