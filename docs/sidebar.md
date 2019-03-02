@@ -3,7 +3,9 @@
     * [Installation](4x/installation.md)
     * [Configuring](4x/configuring.md)
     * [Testing configuration](4x/testing.md)
-    * [Change log](4x/changelog.md)
+    * [SlackBot usage](4x/usage.md)
+    * [Error codes](4x/error-codes.md)
+* [Change log](4x/changelog.md)
 * [Licence](licence.md)
 
 ---
