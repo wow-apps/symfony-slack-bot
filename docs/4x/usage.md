@@ -63,15 +63,13 @@ $slackMessage = new SlackMessage('If you read this - SlackBot is working!');
 $slackMessage = new SlackMessage();
 
 $slackMessage
-    ->setText('If you read this - SlackBot is working!') // Message text body
-    ->setRecipient('general') // Slack channel
-    ->setSender('WoW-Apps') // Bot name
-    ->setShowQuote(true) // Is add quote to message
-    ->setQuoteType(SlackBot::QUOTE_SUCCESS) // Quote type (changes color of vertical line)
-    ->setQuoteText('Some text inside quote') // Text inside quote
-    ->setQuoteTitle('SlackBot for Symfony 3') // Quote title
-    ->setQuoteTitleLink('https://github.com/wow-apps/symfony-slack-bot'); // Quote title link url
+    ->setText('Simple text')
+    ->setUsername('Bot')
+    ->setChannel('notifications')
+    ->setIconEmoji(SlackEmoji::ACTIVITY__8BALL);
 ```
+
+![](https://wow-apps.github.io/symfony-slack-bot/assets/images/docs/using-1.jpg ":no-zoom")
 
 #### Setting message icon {docsify-ignore}
 <!-- tabs:start -->
