@@ -29,12 +29,12 @@ class Foo
         $slackMessage = new SlackMessage();
         
         $slackMessage
-            ->setIconEmoji(SlackEmoji::PEOPLE_ALIEN)
-            ->setText('If you read this - SlackBot is working!')
-            ->setRecipient('general')
-            ->setSender('WoW-Apps');
+            ->setText('Simple text')
+            ->setUsername('Bot')
+            ->setChannel('notifications')
+            ->setIconEmoji(SlackEmoji::ACTIVITY__8BALL);
         
-        if ($this->slackBot->sendMessage($slackMessage)) {
+        if ($this->slackBot->send($slackMessage)) {
             // Message sent successfully
         } else {
             // Message not sent

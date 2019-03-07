@@ -6,6 +6,7 @@
     * SlackBot usage
         * [Service injection](4x/usage-injection.md)
         * [Create message object](4x/usage-dto-message.md)
+        * [Message attachments](4x/usage-dto-attachment.md)
         * [Send message](4x/usage-send.md)
     * [Error codes](4x/error-codes.md)
 * [Change log](4x/changelog.md)
