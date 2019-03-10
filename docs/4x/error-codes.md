@@ -1,120 +1,22 @@
-# Error codes
+# Error Codes
 
-## 0 {docsify-ignore}
-> Unknown error
-
----
-
-## 1 {docsify-ignore}
-> Username can't be empty
-
----
-
-
-## 2 {docsify-ignore}
-> Channel can't be empty
-
----
-
-
-## 3 {docsify-ignore}
-> Incorrect icon url. Supported files: jpg, jpeg, png
-
----
-
-
-## 4 {docsify-ignore}
-> Incorrect Emoji icon
-
----
-
-
-## 5 {docsify-ignore}
-> Message text can't be empty without attachments
-
----
-
-
-## 6 {docsify-ignore}
-> Wrong lines number. Allowed minimum value is 1 and maximum is 5
-
----
-
-
-## 7 {docsify-ignore}
-> The list must contain at least one value for format
-
----
-
-
-## 8 {docsify-ignore}
-> Incorrect list type
-
----
-
-
-## 9 {docsify-ignore}
-> Incorrect color
-
----
-
-
-## 10 {docsify-ignore}
-> Missing API url in SlackbotProvider
-
----
-
-
-## 11 {docsify-ignore}
-> Bad response from Slack server
-
----
-
-
-## 12 {docsify-ignore}
-> An error occurred during making JSON from SlackMessage
-
----
-
-
-## 13 {docsify-ignore}
-> Exceeded the limit of attachments number
-
----
-
-
-## 14 {docsify-ignore}
-> Attachment author name can't be empty when you set author link or icon
-
----
-
-
-## 15 {docsify-ignore}
-> Attachment title can't be empty when you set title link
-
----
-
-
-## 16 {docsify-ignore}
-> Current version of SlackBot supports just 'button' type for actions
-
----
-
-
-## 17 {docsify-ignore}
-> Action text can't be empty
-
----
-
-
-## 18 {docsify-ignore}
-> Confirmation title can't be empty
-
----
-
-
-## 19 {docsify-ignore}
-> Confirmation text can't be empty
-
----
-
+* [0 - Unknown error](4x/exceptions/0.md)
+* [1 - Unknown error](4x/exceptions/1.md)
+* [2 - Unknown error](4x/exceptions/2.md)
+* [3 - Unknown error](4x/exceptions/3.md)
+* [4 - Unknown error](4x/exceptions/4.md)
+* [5 - Unknown error](4x/exceptions/5.md)
+* [6 - Unknown error](4x/exceptions/6.md)
+* [7 - Unknown error](4x/exceptions/7.md)
+* [8 - Unknown error](4x/exceptions/8.md)
+* [9 - Unknown error](4x/exceptions/9.md)
+* [10 - Unknown error](4x/exceptions/10.md)
+* [11 - Unknown error](4x/exceptions/11.md)
+* [12 - Unknown error](4x/exceptions/12.md)
+* [13 - Unknown error](4x/exceptions/13.md)
+* [14 - Unknown error](4x/exceptions/14.md)
+* [15 - Unknown error](4x/exceptions/15.md)
+* [16 - Unknown error](4x/exceptions/16.md)
+* [17 - Unknown error](4x/exceptions/17.md)
+* [18 - Unknown error](4x/exceptions/18.md)
+* [19 - Unknown error](4x/exceptions/19.md)

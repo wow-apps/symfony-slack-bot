@@ -15,6 +15,9 @@ $slackMessage = new SlackMessage('If you read this - SlackBot is working!');
 
 ### Adding more options to Message {docsify-ignore}
 
+<!-- tabs:start -->
+#### ** Object setters **
+
 ```php
 $slackMessage = new SlackMessage();
 
@@ -24,6 +27,22 @@ $slackMessage
     ->setChannel('notifications')
     ->setIconEmoji(SlackEmoji::ACTIVITY__8BALL);
 ```
+
+#### ** Create object with parameters **
+
+```php
+$slackMessage = new SlackMessage(
+    'Simple text', // Text of message
+    'Bot', // User name
+    'notifications', // Channel name
+    '', // Icon URL
+    SlackEmoji::ACTIVITY__8BALL, // Icon Emoji,
+    true, // Enable markdown
+    [] // Array of attachments
+);
+```
+
+<!-- tabs:end -->
 
 ![](https://wow-apps.github.io/symfony-slack-bot/assets/images/docs/using-1.jpg ":no-zoom")
 
@@ -126,7 +145,7 @@ _Returns: `WowApps\SlackBundle\DTO\SlackMessage`_
 Set the icon Emoji for a message.
 
 > [!NOTE]
-> You can use [SlackEmoji](helpers-emoji.md) for setting Emoji as icon
+> You can use [SlackEmoji](4x/helpers-emoji.md) for setting Emoji as icon
 
 ---
 

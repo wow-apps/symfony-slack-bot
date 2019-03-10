@@ -65,17 +65,25 @@ services:
 
 After you'll [create your application](https://api.slack.com/incoming-webhooks) on Slack API portal, you'll get API URL for your web-hooks.
 
+---
+
 ### `default_icon_url` {docsify-ignore}
 
 If you'll don't set `iconUrl` or `iconEmoji` for Message DTO, message builder will set `iconUrl` from this parameter value. Use image full url.
+
+---
 
 ### `default_channel` {docsify-ignore}
 
 If you'll don't set `channel` for Message DTO, message builder will set it from this parameter value.
 
+---
+
 ### `default_username` {docsify-ignore}
 
 If you'll don't set `username` for Message DTO, message builder will set it from this parameter value.
+
+---
 
 ### `default_fallback` {docsify-ignore}
 
@@ -84,9 +92,13 @@ If you'll don't set `fallback` for Message Attachment DTO, message builder will 
 > **Fallback** is a plain-text summary of the attachment. This text will be used in clients that don't show formatted text (eg. IRC, mobile notifications) and should not contain any markup.
 > [Read more in Slack API Documentation](https://api.slack.com/docs/message-attachments)
 
+---
+
 ### `colors` {docsify-ignore}
 
 You can specify your own color codes (HEX) for attachments left border color. You can set HEX codes for next styles: `default`, `info`, `warning`, `success` and `danger`.
+
+---
 
 ### `templates` {docsify-ignore}
 
