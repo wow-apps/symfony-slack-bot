@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.2.15] - 2019-02-22
+### Changed
+- Implemented new Slack API JSON format ([Issue #14](https://github.com/wow-apps/symfony-slack-bot/issues/14))
+
+## [3.2.14] - 2019-02-04
+### Changed
+- Fixed problem with setting Message sender ([Issue #13](https://github.com/wow-apps/symfony-slack-bot/issues/13))
+
+## [3.2.13] - 2018-12-21
+### Changed
+- Fixed characters replacement for links in trait ([Issue #11](https://github.com/wow-apps/symfony-slack-bot/issues/11))
+
 ## [3.2.12] - 2018-10-09
 ### Changed
 - Fixed setting of message icon ([Issue #9](https://github.com/wow-apps/symfony-slack-bot/issues/9))
