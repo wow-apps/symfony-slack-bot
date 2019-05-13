@@ -310,7 +310,7 @@ class AttachmentTest extends TestCase
 
     public function testGetTimestamp()
     {
-        $this->assertTrue(is_string($this->slackMessageMock->getAttachments()[0]->getTimestamp()));
+        $this->assertTrue(is_int($this->slackMessageMock->getAttachments()[0]->getTimestamp()));
         $this->assertSame(
             $this->testData['attachment']['timestamp'],
             $this->slackMessageMock->getAttachments()[0]->getTimestamp()
@@ -319,9 +319,9 @@ class AttachmentTest extends TestCase
 
     public function testSetTimestamp()
     {
-        $newData = $this->randomString();
+        $newData = time();
         $this->slackMessageMock->getAttachments()[0]->setTimestamp($newData);
-        $this->assertTrue(is_string($this->slackMessageMock->getAttachments()[0]->getTimestamp()));
+        $this->assertTrue(is_int($this->slackMessageMock->getAttachments()[0]->getTimestamp()));
         $this->assertSame($newData, $this->slackMessageMock->getAttachments()[0]->getTimestamp());
 
         $this->rollBackSlackMessage();

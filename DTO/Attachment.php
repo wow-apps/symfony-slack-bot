@@ -64,7 +64,7 @@ class Attachment
     /** @var string */
     private $fallback;
 
-    /** @var string */
+    /** @var int */
     private $timestamp;
 
     /** @var AttachmentField[] */
@@ -89,7 +89,7 @@ class Attachment
      * @param string             $footer
      * @param string             $footerIconUrl
      * @param string             $fallback
-     * @param string             $timestamp
+     * @param int                $timestamp
      * @param AttachmentField[]  $fields
      * @param AttachmentAction[] $actions
      */
@@ -107,7 +107,7 @@ class Attachment
         string $footer = '',
         string $footerIconUrl = '',
         string $fallback = '',
-        string $timestamp = '',
+        int $timestamp = 0,
         array  $fields = [],
         array  $actions = []
     ) {
@@ -486,9 +486,9 @@ class Attachment
     /**
      * Returns attachment timestamp, placed in footer.
      *
-     * @return string
+     * @return int
      */
-    public function getTimestamp(): string
+    public function getTimestamp(): int
     {
         return $this->timestamp;
     }
@@ -496,11 +496,11 @@ class Attachment
     /**
      * Set attachment timestamp, placed in footer.
      *
-     * @param string $timestamp
+     * @param int $timestamp
      *
      * @return Attachment
      */
-    public function setTimestamp(string $timestamp = ''): Attachment
+    public function setTimestamp(int $timestamp = 0): Attachment
     {
         $this->timestamp = empty($timestamp) ? time() : $timestamp;
 

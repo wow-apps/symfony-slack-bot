@@ -72,7 +72,7 @@ abstract class TestCase extends PHPUnitTestCase
                 'footer' => $this->randomString(),
                 'footer_icon_url' => $this->randomString(),
                 'fallback' => $this->randomString(),
-                'timestamp' => (string) time(),
+                'timestamp' => time(),
                 'field' => [
                     'title' => $this->randomString(),
                     'value' => $this->randomString(),
