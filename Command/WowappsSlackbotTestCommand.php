@@ -155,10 +155,7 @@ class WowappsSlackbotTestCommand extends ContainerAwareCommand
             }
         }
 
-        $symfonyStyle->table(
-            ['Parameter', 'Value'],
-            $tBody
-        );
+        $symfonyStyle->table(['Parameter', 'Value'], $tBody);
     }
 
     /**
