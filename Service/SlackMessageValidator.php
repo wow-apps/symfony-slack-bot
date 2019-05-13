@@ -32,7 +32,7 @@ use WowApps\SlackBundle\Tests\Service\SlackEmojiTest;
  */
 class SlackMessageValidator
 {
-    const ATTACHMENTS_LIMIT = 5;
+    const ATTACHMENTS_LIMIT = 20;
 
     /**
      * @param SlackMessage $message

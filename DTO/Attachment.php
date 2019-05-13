@@ -130,6 +130,8 @@ class Attachment
     }
 
     /**
+     * Returns attachment's left border color.
+     *
      * @return string
      */
     public function getColor(): string
@@ -138,6 +140,8 @@ class Attachment
     }
 
     /**
+     * Set attachment’s left border color.
+     *
      * @param string $color
      *
      * @return Attachment
@@ -150,6 +154,8 @@ class Attachment
     }
 
     /**
+     * Returns text, that shown before attachment.
+     *
      * @return string
      */
     public function getPretext(): string
@@ -158,6 +164,8 @@ class Attachment
     }
 
     /**
+     * Set the text, that shown before attachment.
+     *
      * @param string $pretext
      *
      * @return Attachment
@@ -170,6 +178,8 @@ class Attachment
     }
 
     /**
+     * Returns name of the attachment's author.
+     *
      * @return string
      */
     public function getAuthorName(): string
@@ -178,6 +188,8 @@ class Attachment
     }
 
     /**
+     * Set the attachment's author name.
+     *
      * @param string $authorName
      *
      * @return Attachment
@@ -190,6 +202,8 @@ class Attachment
     }
 
     /**
+     * Returns attachment's author link.
+     *
      * @return string
      */
     public function getAuthorLink(): string
@@ -198,6 +212,8 @@ class Attachment
     }
 
     /**
+     * Set the attachment's author link.
+     *
      * @param string $authorLink
      *
      * @return Attachment
@@ -210,6 +226,8 @@ class Attachment
     }
 
     /**
+     * Returns attachment's author icon url.
+     *
      * @return string
      */
     public function getAuthorIconUrl(): string
@@ -218,6 +236,8 @@ class Attachment
     }
 
     /**
+     * Set the attachment's author icon url.
+     *
      * @param string $authorIconUrl
      *
      * @return Attachment
@@ -230,6 +250,8 @@ class Attachment
     }
 
     /**
+     * Returns attachment title.
+     *
      * @return string
      */
     public function getTitle(): string
@@ -238,6 +260,8 @@ class Attachment
     }
 
     /**
+     * Set attachment title.
+     *
      * @param string $title
      *
      * @return Attachment
@@ -250,6 +274,8 @@ class Attachment
     }
 
     /**
+     * Returns attachment title link.
+     *
      * @return string
      */
     public function getTitleLink(): string
@@ -258,6 +284,8 @@ class Attachment
     }
 
     /**
+     * Set attachment title link.
+     *
      * @param string $titleLink
      *
      * @return Attachment
@@ -270,6 +298,8 @@ class Attachment
     }
 
     /**
+     * Returns attachment main text.
+     *
      * @return string
      */
     public function getText(): string
@@ -278,6 +308,8 @@ class Attachment
     }
 
     /**
+     * Set attachment main text.
+     *
      * @param string $text
      *
      * @return Attachment
@@ -290,6 +322,8 @@ class Attachment
     }
 
     /**
+     * Returns collection of attachment fields.
+     *
      * @return AttachmentField[]
      */
     public function getFields(): array
@@ -298,6 +332,8 @@ class Attachment
     }
 
     /**
+     * Set collection of attachment fields.
+     *
      * @param AttachmentField[] $fields
      *
      * @return Attachment
@@ -310,6 +346,8 @@ class Attachment
     }
 
     /**
+     * Append attachment fields to collection.
+     *
      * @param AttachmentField $field
      *
      * @return Attachment
@@ -326,6 +364,8 @@ class Attachment
     }
 
     /**
+     * Returns attachment image url.
+     *
      * @return string
      */
     public function getImageUrl(): string
@@ -334,6 +374,8 @@ class Attachment
     }
 
     /**
+     * Set attachment image url.
+     *
      * @param string $imageUrl
      *
      * @return Attachment
@@ -346,6 +388,8 @@ class Attachment
     }
 
     /**
+     * Returns attachment image thumb url.
+     *
      * @return string
      */
     public function getThumbUrl(): string
@@ -354,6 +398,8 @@ class Attachment
     }
 
     /**
+     * Set attachment image url.
+     *
      * @param string $thumbUrl
      *
      * @return Attachment
@@ -366,6 +412,8 @@ class Attachment
     }
 
     /**
+     * Returns attachment footer text.
+     *
      * @return string
      */
     public function getFooter(): string
@@ -374,6 +422,8 @@ class Attachment
     }
 
     /**
+     * Set attachment footer text.
+     *
      * @param string $footer
      *
      * @return Attachment
@@ -386,6 +436,8 @@ class Attachment
     }
 
     /**
+     * Returns attachment footer icon url.
+     *
      * @return string
      */
     public function getFooterIconUrl(): string
@@ -394,6 +446,8 @@ class Attachment
     }
 
     /**
+     * Set attachment footer icon url.
+     *
      * @param string $footerIconUrl
      *
      * @return Attachment
@@ -406,6 +460,8 @@ class Attachment
     }
 
     /**
+     * Returns attachment fallback text.
+     *
      * @return string
      */
     public function getFallback(): string
@@ -414,6 +470,8 @@ class Attachment
     }
 
     /**
+     * Set attachment fallback text.
+     *
      * @param string $fallback
      *
      * @return Attachment
@@ -426,6 +484,8 @@ class Attachment
     }
 
     /**
+     * Returns attachment timestamp, placed in footer.
+     *
      * @return string
      */
     public function getTimestamp(): string
@@ -434,6 +494,8 @@ class Attachment
     }
 
     /**
+     * Set attachment timestamp, placed in footer.
+     *
      * @param string $timestamp
      *
      * @return Attachment
@@ -446,6 +508,8 @@ class Attachment
     }
 
     /**
+     * Returns array of attachment actions.
+     *
      * @return AttachmentAction[]
      */
     public function getActions(): array
@@ -454,6 +518,8 @@ class Attachment
     }
 
     /**
+     * Set array of attachment actions.
+     *
      * @param AttachmentAction[] $actions
      *
      * @return Attachment
@@ -466,6 +532,8 @@ class Attachment
     }
 
     /**
+     * Append action to attachment.
+     *
      * @param AttachmentAction $action
      *
      * @return Attachment

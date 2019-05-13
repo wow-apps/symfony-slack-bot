@@ -74,6 +74,8 @@ class SlackMessage
     }
 
     /**
+     * Returns the user name on behalf of which the message will be sent.
+     *
      * @return string
      */
     public function getUsername(): string
@@ -82,6 +84,8 @@ class SlackMessage
     }
 
     /**
+     * Set the user name on behalf of which the message will be sent.
+     *
      * @param string $username
      *
      * @return SlackMessage
@@ -94,6 +98,8 @@ class SlackMessage
     }
 
     /**
+     * Returns the name of channel where the message will be sent.
+     *
      * @return string
      */
     public function getChannel(): string
@@ -102,6 +108,8 @@ class SlackMessage
     }
 
     /**
+     * Set the name of channel where the message will be sent.
+     *
      * @param string $channel
      *
      * @return SlackMessage
@@ -114,6 +122,8 @@ class SlackMessage
     }
 
     /**
+     * Returns icon url of message.
+     *
      * @return string
      */
     public function getIconUrl(): string
@@ -122,6 +132,8 @@ class SlackMessage
     }
 
     /**
+     * Set the icon url for a message.
+     *
      * @param string $iconUrl
      *
      * @return SlackMessage
@@ -134,6 +146,8 @@ class SlackMessage
     }
 
     /**
+     * Returns icon Emoji of message.
+     *
      * @return string
      */
     public function getIconEmoji(): string
@@ -142,6 +156,8 @@ class SlackMessage
     }
 
     /**
+     * Set the icon Emoji for a message.
+     *
      * @param string $iconEmoji
      *
      * @return SlackMessage
@@ -154,6 +170,8 @@ class SlackMessage
     }
 
     /**
+     * Returns state of markdown support of message.
+     *
      * @return bool
      */
     public function isMarkdown(): bool
@@ -162,6 +180,8 @@ class SlackMessage
     }
 
     /**
+     * Set the state of markdown support of message.
+     *
      * @param bool $markdown
      *
      * @return SlackMessage
@@ -174,6 +194,8 @@ class SlackMessage
     }
 
     /**
+     * Returns main text of message.
+     *
      * @return string
      */
     public function getText(): string
@@ -182,6 +204,8 @@ class SlackMessage
     }
 
     /**
+     * Set the main text of message.
+     *
      * @param string $text
      *
      * @return SlackMessage
@@ -194,6 +218,8 @@ class SlackMessage
     }
 
     /**
+     * Returns collection of Attachment DTOs.
+     *
      * @return Attachment[]
      */
     public function getAttachments(): array
@@ -202,6 +228,8 @@ class SlackMessage
     }
 
     /**
+     * Set collection of Attachment DTOs.
+     *
      * @param Attachment[] $attachments
      *
      * @return SlackMessage
@@ -214,6 +242,8 @@ class SlackMessage
     }
 
     /**
+     * Appends Attachment DTO to collection.
+     *
      * @param Attachment $attachment
      *
      * @return SlackMessage

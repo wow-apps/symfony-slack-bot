@@ -86,7 +86,7 @@ class SlackbotException extends InvalidArgumentException
             "[%d] %s\nRead more: %s\n%s",
             $errorCode,
             $this->errorMessages[$errorCode],
-            'https://wow-apps.github.io/symfony-slack-bot/docs/#/4x/error-codes?id=' . $errorCode,
+            'https://wow-apps.github.io/symfony-slack-bot/docs/#/4x/exceptions/' . $errorCode,
             empty($additional) ? '' : 'Additional: ' . sprintf(' (%s)', implode(', ', $additional))
         );
 
