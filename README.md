@@ -1,4 +1,4 @@
-![SlackBot banner](http://cdn.wow-apps.pro/slackbot/symfony-slack-bot-banner-v2.png)
+![SlackBot banner](https://wow-apps.github.io/symfony-slack-bot/assets/images/symfony_slack_bot_banner_4_brand.png)
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/9e427ba8-ceee-47a4-aeef-a788b9875064/big.png)](https://insight.sensiolabs.com/projects/9e427ba8-ceee-47a4-aeef-a788b9875064)
 
@@ -19,10 +19,6 @@
 
 Simple Symfony 3 and 4 Bundle for sending customizable messages to Slack via [incoming webhooks](https://api.slack.com/incoming-webhooks).
 
-> Symfony Slack Bot **version 4** is coming on February 27 2019 
-> 
-> follow news...
-
 ## Requires:
 
 * PHP 7.0+
@@ -35,7 +31,7 @@ Simple Symfony 3 and 4 Bundle for sending customizable messages to Slack via [in
 
 ```json
 "require": {
-        "wow-apps/symfony-slack-bot": "^3.2"
+        "wow-apps/symfony-slack-bot": "^4.0"
 }
 ```
 
@@ -68,17 +64,28 @@ public function registerBundles()
 
 ```yaml
 # SlackBot Configuration
-wow_apps_slack:
-    api_url: ""
-    default_icon: "//cdn.wow-apps.pro/slackbot/slack-bot-icon-48.png"
-    default_channel: "general"
-    quote_color:
-        default: "#607D8B"
-        info: "#2196F3"
-        warning: "#FF5722"
-        success: "#8BC34A"
-        danger: "#F44336"
+services:
+    # SlackBot Configuration
+    wow_apps_slack:
+        api_url: "%env(WOW_APPS_SLACK_BOT_API_URL)%"
+        default_icon_url: "https://wow-apps.github.io/symfony-slack-bot/public/message-icon.png"
+        default_channel: "general"
+        default_username: "wow-apps/symfony-slack-bot"
+        default_fallback: "Can't display attachment in plain-text mode"
+        colors:
+            default: "#607D8B"
+            info: "#2196F3"
+            warning: "#FF5722"
+            success: "#8BC34A"
+            danger: "#F44336"
+        templates:
+            exception:
+                username: "Exception"
+                channel: "general"
+                icon: "https://wow-apps.github.io/symfony-slack-bot/public/exception-icon.png"
 ```
+
+> see more about [override default parameters](https://wow-apps.github.io/symfony-slack-bot/docs/#/4x/configuring?id=override-default-parameters)
 
 ## Send test message:
 
@@ -88,11 +95,12 @@ To test your configuration, send test message by next command:
 ./bin/console wowapps:slackbot:test
 ```
 
-![Test command result preview](http://cdn.wow-apps.pro/slackbot/slackbot_preview-v2.jpg)
+![Test command result preview](https://wow-apps.github.io/symfony-slack-bot/assets/images/docs/testing-1.jpg)
 
 
 # Documentation
-Check our new [documentation](https://wow-apps.github.io/symfony-slack-bot/docs/#/)
+* Actual version [4.x](https://wow-apps.github.io/symfony-slack-bot/docs/)
+* Unmaintained version [3.x](https://wow-apps.github.io/symfony-slack-bot/docs/#/3x/installation)
     
 # News and updates
 
@@ -106,57 +114,8 @@ I don't ask for donates, I do what I do for free, for all development community.
 
 # License
 
-[MIT](https://github.com/wow-apps/symfony-slack-bot/blob/master/LICENSE) © 2016 - 2018 [Alexey Samara](https://wow-apps.pro) & [contributors](https://github.com/wow-apps/symfony-slack-bot/graphs/contributors)
+[MIT](https://github.com/wow-apps/symfony-slack-bot/blob/master/LICENSE) © 2016 - 2019 [Alexey Samara](https://wow-apps.pro) & [contributors](https://github.com/wow-apps/symfony-slack-bot/graphs/contributors)
 
 # Contribute
 
 Do you want to make a change? Pull requests are welcome.
-
-# Changelog of 3rd version:
-
-## Added
-* [3.2.12] Functions `getIconUrl`, `setIconUrl`, `getIconEmoji` and `setIconEmoji`
-* [3.2.12] Class `SlackEmoji` with many constants of Slack emojis
-* [3.2.12] Flag `JSON_UNESCAPED_SLASHES` for outgoing message body ([Issue #9](https://github.com/wow-apps/symfony-slack-bot/issues/9))
-* [3.2.12] Emoji format validator
-* [3.2.12] Some new tests
-* [3.2.9] All public methods was covered by tests
-* [3.2.8] More test coverage
-* [3.2.7] Template for new pull request
-* [3.2.7] PHPUnit configuration
-* [3.2.6] phpunit test for Traits
-* [3.2.6] Templates for creating an issue
-* [3.1.0] Compatibility for Symfony 3.1 up to 4.0 ([issue #1](https://github.com/wow-apps/symfony-slack-bot/issues/1))
-* [3.1.0] Message validation
-* [3.1.0] Custom exceptions
-* [3.1.0] Travis CI tests
-* [3.1.0] Missing phpDocs
-    
-## Changed
-* [3.2.15] Implemented new Slack API JSON format ([Issue #14](https://github.com/wow-apps/symfony-slack-bot/issues/14))
-* [3.2.14] Fixed problem with setting Message sender ([Issue #13](https://github.com/wow-apps/symfony-slack-bot/issues/13))
-* [3.2.13] Fixed characters replacement for links in trait ([Issue #11](https://github.com/wow-apps/symfony-slack-bot/issues/11))
-* [3.2.12] Fixed setting of message icon ([Issue #9](https://github.com/wow-apps/symfony-slack-bot/issues/9))
-* [3.2.12] Functions `setIcon` and `getIcon` for SlackBot DTO set as deprecated and will be removed in version 3.3 ([Issue #9](https://github.com/wow-apps/symfony-slack-bot/issues/9))
-* [3.2.12] Test command now send message with random emoji as icon
-* [3.2.11] Fixed bug. Messages always goes to default channel before
-* [3.2.10] Some cosmetic changes
-* [3.2.8] TravisCI configuration
-* [3.2.8] Little optimisation for Scrutinizer
-* [3.2.8] Little optimisation for Codacy
-* [3.2.7] TravisCI configuration
-* [3.2.6] Fixed wrong using of custom exception
-* [3.2.6] TravisCI configuration
-* [3.2.5] Fixed problem with missed services.yaml file ([Issue #3](https://github.com/wow-apps/symfony-slack-bot/issues/3))
-* [3.2.4] TravisCI configuration
-* [3.2.3] README file for Symfony 4 support
-* [3.2.2] Support for auto configuring bundle in Symfony Flex
-* [3.1.3] Licence from Apache 2 to MIT for Symfony Flex
-* [3.1.1] Namespaces from `Wowapps` to `WowApps` for a single standard of all my Bundles (hot fix for 3.1.0)
-* [3.1.0] Config parameter from `wowapps_slack` to `wow_apps_slack` for a single standard of all my Bundles
-* [3.1.0] Test command from `slackbot:test` to `wowapps:slackbot:test` for a single standard of all my Bundles
-
-## Removed
-* [3.2.0] symfony/symfony dependency for Symfony Flex
-* [3.1.0] Unused Controller
-* [3.1.0] Empty tests
