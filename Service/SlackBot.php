@@ -91,4 +91,16 @@ class SlackBot
     {
         return $this->config;
     }
+
+    /**
+     * @param string $apiUrl
+     *
+     * @return SlackBot
+     */
+    public function setApiUrl(string $apiUrl): SlackBot
+    {
+        $this->provider->setApiUrl($apiUrl);
+
+        return $this;
+    }
 }

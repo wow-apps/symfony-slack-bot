@@ -38,6 +38,9 @@ class SlackProvider
     /** @var array */
     private $config;
 
+    /** @var string */
+    private $apiUrl;
+
     /** @var Client */
     private $client;
 
@@ -49,6 +52,10 @@ class SlackProvider
     public function __construct(array $config)
     {
         $this->config = $config;
+        if (empty($this->config['api_url'])) {
+            throw new SlackbotException(SlackbotException::E_MISSING_API_URL);
+        }
+        $this->apiUrl = $this->config['api_url'];
         $this->client = new Client();
     }
 
@@ -59,12 +66,8 @@ class SlackProvider
      */
     public function send(string $postBody): bool
     {
-        if (empty($this->config['api_url'])) {
-            throw new SlackbotException(SlackbotException::E_MISSING_API_URL);
-        }
-
         $request = $this->client->post(
-            $this->config['api_url'],
+            $this->apiUrl,
             ['body' => $postBody]
         );
 
@@ -76,5 +79,25 @@ class SlackProvider
         }
 
         return true;
+    }
+
+    /**
+     * @return string
+     */
+    public function getApiUrl(): string
+    {
+        return $this->apiUrl;
+    }
+
+    /**
+     * @param string $apiUrl
+     *
+     * @return SlackProvider
+     */
+    public function setApiUrl(string $apiUrl)
+    {
+        $this->apiUrl = $apiUrl;
+
+        return $this;
     }
 }
