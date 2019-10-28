@@ -16,10 +16,10 @@
  * Copyright 2016 WoW-Apps.
  */
 
-namespace WowApps\SlackBundle\Tests\DTO;
+namespace WowApps\SlackBundle\Tests\Entity;
 
-use WowApps\SlackBundle\DTO\Attachment;
-use WowApps\SlackBundle\DTO\SlackMessage;
+use WowApps\SlackBundle\Entity\Attachment;
+use WowApps\SlackBundle\Entity\SlackMessage;
 use WowApps\SlackBundle\Tests\TestCase;
 
 /**

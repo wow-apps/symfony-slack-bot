@@ -19,11 +19,11 @@
 namespace WowApps\SlackBundle\Tests;
 
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
-use WowApps\SlackBundle\DTO\Attachment;
-use WowApps\SlackBundle\DTO\AttachmentAction;
-use WowApps\SlackBundle\DTO\AttachmentActionConfirm;
-use WowApps\SlackBundle\DTO\AttachmentField;
-use WowApps\SlackBundle\DTO\SlackMessage;
+use WowApps\SlackBundle\Entity\Attachment;
+use WowApps\SlackBundle\Entity\AttachmentAction;
+use WowApps\SlackBundle\Entity\AttachmentActionConfirm;
+use WowApps\SlackBundle\Entity\AttachmentField;
+use WowApps\SlackBundle\Entity\SlackMessage;
 use WowApps\SlackBundle\Service\SlackEmoji;
 use WowApps\SlackBundle\Service\SlackColor;
 

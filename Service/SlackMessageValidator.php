@@ -18,10 +18,10 @@
 
 namespace WowApps\SlackBundle\Service;
 
-use WowApps\SlackBundle\DTO\Attachment;
-use WowApps\SlackBundle\DTO\AttachmentAction;
-use WowApps\SlackBundle\DTO\AttachmentActionConfirm;
-use WowApps\SlackBundle\DTO\SlackMessage;
+use WowApps\SlackBundle\Entity\Attachment;
+use WowApps\SlackBundle\Entity\AttachmentAction;
+use WowApps\SlackBundle\Entity\AttachmentActionConfirm;
+use WowApps\SlackBundle\Entity\SlackMessage;
 use WowApps\SlackBundle\Exception\SlackbotException;
 use WowApps\SlackBundle\Tests\Service\SlackEmojiTest;
 
