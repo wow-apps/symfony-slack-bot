@@ -54,10 +54,6 @@ class SlackMessageValidator
             throw new SlackbotException(SlackbotException::E_EMPTY_USERNAME);
         }
 
-        if (empty($message->getChannel())) {
-            throw new SlackbotException(SlackbotException::E_EMPTY_CHANNEL);
-        }
-
         self::checkIcon($message);
 
         if (empty($message->getText()) && empty($message->getAttachments())) {
