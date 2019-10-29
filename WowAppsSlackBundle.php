@@ -25,5 +25,5 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class WowAppsSlackBundle extends Bundle
 {
-    const CURRENT_VERSION = '4.0.0';
+    const CURRENT_VERSION = '5.0.0';
 }

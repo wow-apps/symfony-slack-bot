@@ -18,7 +18,7 @@
 
 namespace WowApps\SlackBundle\Templating;
 
-use WowApps\SlackBundle\DTO\SlackMessage;
+use WowApps\SlackBundle\Entity\SlackMessage;
 
 interface SlackTemplateInterface
 {

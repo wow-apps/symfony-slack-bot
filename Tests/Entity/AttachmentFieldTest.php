@@ -16,9 +16,9 @@
  * Copyright 2016 WoW-Apps.
  */
 
-namespace WowApps\SlackBundle\Tests\DTO;
+namespace WowApps\SlackBundle\Tests\Entity;
 
-use WowApps\SlackBundle\DTO\AttachmentField;
+use WowApps\SlackBundle\Entity\AttachmentField;
 use WowApps\SlackBundle\Tests\TestCase;
 
 /**

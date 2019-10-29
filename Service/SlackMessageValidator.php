@@ -18,12 +18,11 @@
 
 namespace WowApps\SlackBundle\Service;
 
-use WowApps\SlackBundle\DTO\Attachment;
-use WowApps\SlackBundle\DTO\AttachmentAction;
-use WowApps\SlackBundle\DTO\AttachmentActionConfirm;
-use WowApps\SlackBundle\DTO\SlackMessage;
+use WowApps\SlackBundle\Entity\Attachment;
+use WowApps\SlackBundle\Entity\AttachmentAction;
+use WowApps\SlackBundle\Entity\AttachmentActionConfirm;
+use WowApps\SlackBundle\Entity\SlackMessage;
 use WowApps\SlackBundle\Exception\SlackbotException;
-use WowApps\SlackBundle\Tests\Service\SlackEmojiTest;
 
 /**
  * Class SlackMessageValidator.
@@ -81,7 +80,7 @@ class SlackMessageValidator
         }
 
         if (!empty($message->getIconEmoji())) {
-            if (!preg_match(SlackEmojiTest::EMOJI_FORMAT_PATTERN, $message->getIconEmoji())) {
+            if (!preg_match('/^\:[a-zA-Z\-\_\d]+\:$/i', $message->getIconEmoji())) {
                 throw new SlackbotException(SlackbotException::E_INCORRECT_ICON_EMOJI);
             }
         }

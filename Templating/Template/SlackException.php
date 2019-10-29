@@ -18,10 +18,10 @@
 
 namespace WowApps\SlackBundle\Templating\Template;
 
-use WowApps\SlackBundle\DTO\Attachment;
-use WowApps\SlackBundle\DTO\AttachmentAction;
-use WowApps\SlackBundle\DTO\AttachmentField;
-use WowApps\SlackBundle\DTO\SlackMessage;
+use WowApps\SlackBundle\Entity\Attachment;
+use WowApps\SlackBundle\Entity\AttachmentAction;
+use WowApps\SlackBundle\Entity\AttachmentField;
+use WowApps\SlackBundle\Entity\SlackMessage;
 use WowApps\SlackBundle\Service\SlackColor;
 use WowApps\SlackBundle\Service\SlackEmoji;
 use WowApps\SlackBundle\Service\SlackMarkdown;

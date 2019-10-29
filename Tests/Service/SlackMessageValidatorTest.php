@@ -18,8 +18,8 @@
 
 namespace WowApps\SlackBundle\Tests\Service;
 
-use WowApps\SlackBundle\DTO\Attachment;
-use WowApps\SlackBundle\DTO\AttachmentAction;
+use WowApps\SlackBundle\Entity\Attachment;
+use WowApps\SlackBundle\Entity\AttachmentAction;
 use WowApps\SlackBundle\Exception\SlackbotException;
 use WowApps\SlackBundle\Service\SlackMessageValidator;
 use WowApps\SlackBundle\Tests\TestCase;

@@ -16,7 +16,7 @@
  * Copyright 2016 WoW-Apps.
  */
 
-namespace WowApps\SlackBundle\DTO;
+namespace WowApps\SlackBundle\Entity;
 
 /**
  * Class Attachment.
