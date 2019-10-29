@@ -26,7 +26,10 @@ class SlackMessage
     /** @var string */
     private $username;
 
-    /** @var string */
+    /**
+     * @deprecated
+     * @var string
+     */
     private $channel;
 
     /** @var string */
@@ -99,7 +102,7 @@ class SlackMessage
 
     /**
      * Returns the name of channel where the message will be sent.
-     *
+     * @deprecated
      * @return string
      */
     public function getChannel(): string
@@ -109,7 +112,7 @@ class SlackMessage
 
     /**
      * Set the name of channel where the message will be sent.
-     *
+     * @deprecated
      * @param string $channel
      *
      * @return SlackMessage

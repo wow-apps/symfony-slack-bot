@@ -63,8 +63,10 @@ class SlackProvider
             throw new SlackbotException(SlackbotException::E_MISSING_API_URL);
         }
 
+        $url = $this->getApiUrl(json_decode($postBody, true));
+
         $request = $this->client->post(
-            $this->config['api_url'],
+            $url,
             ['body' => $postBody]
         );
 
@@ -76,5 +78,21 @@ class SlackProvider
         }
 
         return true;
+    }
+
+    /**
+     * @deprecated
+     * @param array $postBody
+     * @return string
+     */
+    private function getApiUrl(array $postBody)
+    {
+        $url = $this->config['api_url'];
+
+        if (!empty($postBody['channel'])) {
+            $url = $this->config['channels'][$postBody['channel']];
+        }
+
+        return $url;
     }
 }

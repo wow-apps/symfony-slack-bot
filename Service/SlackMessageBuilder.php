@@ -90,8 +90,10 @@ class SlackMessageBuilder
             $this->slackMessage->setUsername($this->config['default_username']);
         }
 
-        if (empty($this->slackMessage->getChannel())) {
-            $this->slackMessage->setChannel($this->config['default_channel']);
+        if (empty($this->slackMessage->getChannel())
+            || !array_key_exists($this->slackMessage->getChannel(), $this->config['channels'])
+        ) {
+            $this->slackMessage->setChannel('');
         }
 
         if (empty($this->slackMessage->getIconUrl()) && empty($this->slackMessage->getIconEmoji())) {
