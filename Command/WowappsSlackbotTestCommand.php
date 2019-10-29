@@ -137,7 +137,6 @@ class WowappsSlackbotTestCommand extends ContainerAwareCommand
         $tBody = [
             ['Slack API url', $this->config['api_url']],
             ['Default icon url', $this->config['default_icon_url']],
-            ['Default channel', $this->config['default_channel']],
             ['Default bot\'s name', $this->config['default_username']],
             ['Colors:', ''],
             ['   default', $this->config['colors']['default']],

@@ -15,7 +15,7 @@
 
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/wow-apps/symfony-slack-bot.svg?style=popout&label=Code%20coverage)](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/?branch=master)
 
-> Due to changes in the Slack API at the time of release of SlackBOT version 4, in this version there is a problem of sending to different channels. The fix for this problem will be **without backward compatibility**, so this change will be published in **November 2019** along with several new features in **version 5**. Please note that when switching to version 5, you'll need to make changes to your code, read the documentation after publication.
+> Version 5 is coming this November. It will require PHP 7.1 and support Symfony 4 and 5 (Symfony 3 users can stay on version 4 of bundle) 
 
 # Symfony Slack Bot
 
