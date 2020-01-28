@@ -13,9 +13,7 @@
 [![Scrutinizer Build](https://img.shields.io/scrutinizer/build/g/wow-apps/symfony-slack-bot.svg?style=popout&label=Scrutinizer%20build)](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/?branch=master)
 [![ContinuousPHP Build](https://img.shields.io/continuousphp/git-hub/wow-apps/symfony-slack-bot/master.svg?style=popout&label=ContinuousPHP%20build)](https://app.continuousphp.com/git-hub/wow-apps/symfony-slack-bot)
 
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/wow-apps/symfony-slack-bot.svg?style=popout&label=Code%20coverage)](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/?branch=master)
-
-> Version 5 is coming this November. It will require PHP 7.1 and support Symfony 4 and 5 (Symfony 3 users can stay on version 4 of bundle) 
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/wow-apps/symfony-slack-bot.svg?style=popout&label=Code%20coverage)](https://scrutinizer-ci.com/g/wow-apps/symfony-slack-bot/?branch=master) 
 
 # Symfony Slack Bot
 

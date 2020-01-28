@@ -1,5 +1,5 @@
 filter:
-    excluded_paths: [Tests/*]
+    excluded_paths: [tests/*]
 
 checks:
     php:
@@ -24,7 +24,7 @@ build:
         php: 7.1.12
     dependencies:
         before:
-            - composer require phpunit/phpunit:^7.1 --dev
+            - composer require phpunit/phpunit:^7.5 --dev
     tests:
         override:
         -
