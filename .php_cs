@@ -12,7 +12,7 @@ $headerPhpDoc = "This file is part of the WoW-Apps/Symfony-Slack-Bot bundle for 
     . "\n"
     . "Author Alexey Samara <lion.samara@gmail.com>\n"
     . "\n"
-    . "Copyright 2016 WoW-Apps.";
+    . "Copyright 2016 - " . date("Y") . " WoW-Apps.";
 
 return PhpCsFixer\Config::create()
     ->setRules([
@@ -49,11 +49,11 @@ return PhpCsFixer\Config::create()
         'no_spaces_around_offset' => ['positions' => ['inside', 'outside']],
     ])
     ->setFinder(PhpCsFixer\Finder::create()
-        ->exclude('vendor')
-        ->exclude('var')
+        ->exclude('.github')
+        ->exclude('config')
         ->exclude('public')
-        ->exclude('docker')
-        ->exclude('bin')
-        ->exclude('.githooks')
-        ->in(__DIR__ . '/../../../')
-    );
+        ->exclude('var')
+        ->exclude('vendor')
+        ->in(__DIR__)
+    )
+;
