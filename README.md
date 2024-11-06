@@ -1,5 +1,8 @@
 ![SlackBot banner](https://wow-apps.github.io/symfony-slack-bot/assets/images/symfony_slack_bot_banner_4_brand.png)
 
+> # :rotating_light: Use official package :rotating_light:
+> This package is no longer maintained because of an existing alternative from SensioLab https://packagist.org/packages/symfony/slack-notifier
+
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/9e427ba8-ceee-47a4-aeef-a788b9875064/big.png)](https://insight.sensiolabs.com/projects/9e427ba8-ceee-47a4-aeef-a788b9875064)
 
 [![Packagist version](https://img.shields.io/packagist/v/wow-apps/symfony-slack-bot.svg?style=popuot&label=Packagist%20version)](https://packagist.org/packages/wow-apps/symfony-slack-bot)
